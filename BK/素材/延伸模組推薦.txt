@@ -1,0 +1,10 @@
+Auto Close Tag
+Auto Rename Tag
+Chinese (Traditional) Language Pack for 
+Data-pack Helper Plus
+language-mcfunction
+Live Server
+vscode-icons
+
+Leaflet Map
+Bootstrap 4, Font awesome 4, Font A

@@ -1,0 +1,424 @@
+body{
+    margin: 0;
+    overflow-y:hidden ;
+    overflow-x: hidden;
+  }
+  .container{
+    width: 100%;
+    height: 100%;
+    scroll-snap-type: y mandatory;
+    overflow-y: hidden;
+    overflow-x: hidden;
+  }
+  .homepage{
+    position:absolute;
+    left: 0;
+    width: 100%;
+      height: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+      scroll-snap-type: start;
+      z-index:1;
+      opacity: 0;
+      border-top-left-radius: 25%;
+      border-top-right-radius: 25%;
+      transition: border-top-left-radius 1s ease, border-top-right-radius 1s ease;
+  }
+  .beginpage{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    scroll-snap-type: start;
+
+}
+   
+  video{
+    position:fixed;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    height:auto;
+    opacity: 0.8;
+  }
+  /* ///////////////////////////////// */
+  
+  /*///////////////// 跳動標題 //////////////*/
+  .bounce-text h1 {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    border-bottom: 5px solid #b973d2;
+    width: 30%;
+    text-align: center;
+    color: #fff;
+    font-weight: 700;
+    z-index: 1;
+    
+  }
+  
+  .bounce-text h1 span {
+    animation: animatetxt 2s linear infinite;
+    display: inline-block;
+    position: relative;
+  }
+  
+  .bounce-text h1 span:nth-child(1) {
+    animation-delay: 0s
+  }
+  
+  .bounce-text h1 span:nth-child(2) {
+    animation-delay: 0.2s
+  }
+  
+  .bounce-text h1 span:nth-child(3) {
+    animation-delay: 0.4s
+  }
+  
+  .bounce-text h1 span:nth-child(4) {
+    animation-delay: 0.6s
+  }
+  
+  .bounce-text h1 span:nth-child(5) {
+    animation-delay: 0.8s
+  }
+  
+  .bounce-text h1 span:nth-child(6) {
+    animation-delay: 1s
+  }
+  
+  .bounce-text h1 span:before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: #fff;
+    animation: animate 1.5s linear infinite;
+  }
+  
+  @keyframes animatetxt {
+    0% {
+        transform: translateY(0px) ;
+        color: rgb(230, 137, 152);
+    }
+    10% {
+        transform: translateY(-30px) ;
+        color: rgb(158, 15, 99);
+    }
+    15% {
+        transform: translateY(0px) ;
+        color:rgb(237, 66, 229);
+    }
+    20% {
+        transform: translateY(-20px);
+    }
+    30% {
+        transform: translateY(0px) ;
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    45% {
+        transform: translateY(0px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+  }
+  /* ////////////////////// */
+  
+  /*//////////////開始按鈕///////////////////////////*/
+  
+  .frame {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    text-align: center;
+  }
+  button {
+    transform: translate(-50%,-50%);
+    z-index: 1;
+  }
+  .custom-btn {
+    width: 130px;
+    height: 40px;
+    color: #fff;
+    border-radius: 5px;
+    padding: 10px 25px;
+    font-family: 'Lato', sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+     box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+     7px 7px 20px 0px rgba(0,0,0,.1),
+     4px 4px 5px 0px rgba(0,0,0,.1);
+    outline: none;
+  }
+  .btn-8 {
+    background-color: #f0ecfc;
+  background-image: linear-gradient(315deg, #f0ecfc 0%, #c797eb 74%);
+    line-height: 42px;
+    padding: 0;
+    border: none;
+  }
+  .btn-8 span {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+  .btn-8:before,
+  .btn-8:after {
+    position: absolute;
+    content: "";
+    right: 0;
+    bottom: 0;
+    background: #c797eb;
+    transition: all 0.3s ease;
+  }
+  .btn-8:before{
+     height: 0%;
+     width: 2px;
+  }
+  .btn-8:after {
+    width: 0%;
+    height: 2px;
+  }
+  .btn-8:hover:before {
+    height: 100%;
+  }
+  .btn-8:hover:after {
+    width: 100%;
+  }
+  .btn-8:hover{
+    background: transparent;
+  }
+  .btn-8 span:hover{
+    color: #c797eb;
+  }
+  .btn-8 span:before,
+  .btn-8 span:after {
+    position: absolute;
+    content: "";
+    left: 0;
+    top: 0;
+    background: #c797eb;
+    transition: all 0.3s ease;
+  }
+  .btn-8 span:before {
+    width: 2px;
+    height: 0%;
+  }
+  .btn-8 span:after {
+    height: 2px;
+    width: 0%;
+  }
+  .btn-8 span:hover:before {
+    height: 100%;
+  }
+  .btn-8 span:hover:after {
+    width: 100%;
+  }
+  
+  /*////////////////////// 加載動畫 /////////////////*/
+  .load_bg{
+    position:fixed;
+    z-index: 999999;
+    background-image: linear-gradient(45deg,#8B5CF6,#EC4899);
+    width: 100%;
+    height: 100%;
+    left: 0;
+    animation: loading 1.5s ease;
+    animation-iteration-count: 1;
+    animation-fill-mode:forwards;
+   
+  }
+  @keyframes loading {
+    0%{opacity: 1;}
+    50%{opacity: 1;}
+    75%{opacity: 1;}  
+    100%{
+      opacity: 0;
+      display:none;
+    }
+    
+  }
+  .loader{
+    position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      width: 100px;
+      height: 100px;
+      border-radius: 100%;
+      margin: 0 auto;
+      
+    
+    }
+    
+    #loader-4 span{
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border-radius: 100%;
+      background-color: #ffffff;
+      margin: 35px 5px;
+      opacity: 0;
+    }
+    
+    #loader-4 span:nth-child(1){
+      animation: opacitychange 1s ease-in-out infinite;
+    }
+    
+    #loader-4 span:nth-child(2){
+      animation: opacitychange 1s ease-in-out 0.33s infinite;
+    }
+    
+    #loader-4 span:nth-child(3){
+      animation: opacitychange 1s ease-in-out 0.66s infinite;
+    }
+    
+    @keyframes opacitychange{
+      0%, 100%{
+        opacity: 0;
+      }
+    
+      60%{
+        opacity: 1;
+      }
+    }
+    /* //////////////////////////////////////////// */
+    
+  /* ////////////////////////菜單卡片 //////////////////////*/
+  .card{
+    width:280px;
+    margin: 30px;
+    height: 410px;
+    position:relative;
+    overflow: hidden;
+    border:4px solid #7d63e3a7;
+    background-color: rgba(0,0,0,0);
+    border-radius: 8%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    opacity: 0;
+    transition: opacity 2s ease;
+    
+}
+.card .card-content{
+  width: 280px;
+  height: 250px;
+  align-items: center;
+  justify-content: center;
+    padding: 20px;
+    color: #fff;
+    transform: translateY(100px);
+    transition:1.5s; 
+}
+hr{
+  transition:opacity 1s;
+  color: #595454;
+  border-width: 3px;
+  opacity: 0;
+}
+.card-content h2{
+  transform: translateX(75px);
+    opacity: 1;
+    font-size: 50px;
+}
+.card-content #letter{transform: translateX(45px);}
+.card:hover .card-content p{opacity: 1;}
+.card:hover .card-content hr{opacity: 1;}
+.card:hover .card-content a{opacity: 1;}
+.card-content a{
+  text-align: center;
+  width: 150px;
+  margin: 10px;
+  height: 45px;
+  position:relative;
+  display: flex;
+  flex-direction: column;
+  padding: 8px;
+  left: 50%;
+  transform: translateX(-55%);
+  background-color: #fff;
+  text-decoration: none;
+  font-size: 20px;
+  color: #000;
+  border-radius: 10px;
+  font-weight: bold;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 1);
+  transition: all 1s;
+  opacity: 0;
+  
+  transition:opacity 1s;
+  transition-delay: 0.3s;
+}
+.card-content a:hover{
+  background-color: #292323;
+  color: white;
+}
+.card-content p{
+  position: absolute;
+  padding-right: 20px;
+  font-size: 16px;
+  font-weight: bold;
+  opacity: 0;
+  transition:opacity 1.5s;
+}
+
+.card:hover .card-content{
+    transform: translateY(-70px);
+    opacity: 1;
+    z-index: 2;
+
+}
+
+.card:before {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left:0;
+    content: "";
+    transform:translate(-100%,-100%);
+    background-color: rgba(193, 110, 110, 0.137);
+    z-index: 1;
+    transition: transform .4s ease-in;
+    border:4px solid rgba(236, 134, 236, 0.418);
+    box-sizing: border-box;
+}
+
+.card:after {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left:0;
+    content: "";
+    transform:translate(100%,100%);
+    background-color: rgba(193, 110, 110, 0.137);
+    z-index: 1;  
+    transition: transform .4s ease-in;
+    border:4px solid rgba(236, 134, 236, 0.418);
+    box-sizing: border-box;
+}
+ .card:hover::before{
+ transform: translateY(0%); 
+ 
+}
+.card:hover::after{
+    transform: translateY(0%); 
+    
+   }
+    
