@@ -41,15 +41,6 @@ img#sun{
 
 
 /* ///////////內容//////////////// */
- 
-.section-title{
-    position: relative;
-    margin: 0;
-    min-height: 50vh;
-    width: 100%;
-    z-index: -1;
-    background-color: rgb(165, 233, 245);
-}
 .section-title::before{
     content: '';
     position: absolute;
@@ -57,41 +48,91 @@ img#sun{
     width: 100%;
     height: 100px;
     background: linear-gradient(to top,rgb(127, 229, 247),transparent);
-    z-index: 5;
 }
-
+.section-title{
+    position: relative;
+    margin: 0;
+    min-height: 100vh;
+    width: 100%;
+    background-color:rgb(165, 233, 245);
+}
+.content{
+  position: absolute;
+    top: 20%;
+    left: 30%;
+    width: 600px;
+    height: auto;
+    padding: 20px;
+}
 .section-title h1{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-100%);
+ text-align: center;
+  color: rgb(51, 48, 227);
     font-weight: 800;
     text-decoration-skip: space;
+    border-bottom: 4px solid #2e6be7;
+    width: 100%;
+    font-size: 60px;
 }
+.section-title h4{
+  text-align: center;
+  font-weight: 600;
+}
+.section-title .card{
+  height: 200px;
+  border-radius: 10px;
+  margin-top: 50px;
+  background-color: #79c5f13a;
+  justify-content:center;
+  display: flex;
+ padding: 10px;
+flex-direction: row;
+ flex-wrap: wrap;
 
-.section-body{
-        position: relative;
+}
+.btn-voc{
+  padding: 10px;
+  margin: 20px;
+  font-weight: 900;
+    font-size: 20px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: white;
+      color: black;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: transform 0.5s, background-color 0.2s, color 0.2s;
+}
+.btn-voc:hover {
+            background-color: black;
+            color: white;
+            transform: scale(1.2);
+        }
+
+.section-voc{
+      position: relative;
         margin: 0;
         min-height: 100vh;
         background-color: rgb(127, 229, 247);
-        height: auto;
         width: 100%;
-
+        padding: 100px 25% 100px 25%;
+        display: none;
+        
 }
 
-
-.style1 .imgstyle{
-    margin-top: 5px;
-}
 .imgstyle{
-    padding: 40px 10% 100px 10%;
-    width: 60%;
+  margin-top: 10px;
+  padding: 50px;
+    width: 800px;
     text-align: center;
     border:5px grey solid;
     padding:40px;
     background-color: rgb(248, 237, 235);
     display:block;
-    margin: auto;
+
 }
 .imgstyle img {
     width: 700px;
@@ -100,15 +141,13 @@ img#sun{
     max-height: 100%;
   }
 
-  .style1{
-   flex-direction: column;
-    position: relative;
-    display: flex;
+  .passline{
+        width: 100%;
+        height: 5px;
+        background-color: rgba(76, 174, 244, 0.803);
+    }
 
-    padding: 100px 10% 200px 10%;
-
-}
-
+/* /////////////////////// */
 
 
 

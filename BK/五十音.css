@@ -8,7 +8,7 @@ body{
         min-height: 100vh;
         background-color: rgb(32, 115, 157);
         width: 100%;
-
+        overflow: hidden;
     }
 
 .section-img{
@@ -49,7 +49,7 @@ body{
 }
 .card-50{
     position: absolute;
-    top: 50%;
+    top: 20%;
     right: 5%;
     transform: translateY(-50%);
 }
@@ -82,33 +82,32 @@ body{
 }
 .card-content-50{
     position: absolute;
-    top: 50%;
+    top: 35%;
     left: 10%;
     transform: translate(-5%,-50%);
 }
 .card-ga{
     position: absolute;
     top: 50%;
-    right: 50%;
-    transform: translate(50%);
+    left: 23%;
+
 }
 
 .card-content-ga{
     position: absolute;
     top: 20%;
-    left: 50%;
-    transform: translate(-50%,-20%);
+    left: 35%;
 }
 .card-ya{
     position: absolute;
-    top: 55%;
-    left: 50%;
-    transform: translate(-50%,-30%);
+    top: 35%;
+    left: 24%;
+
 }
 .card-content-ya{
     position: absolute;
     top: 15%;
-    left: 50%;
+    left: 35%;
     transform: translate(-50%,-20%);
 }
 .passline{

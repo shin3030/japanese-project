@@ -14,7 +14,7 @@ var title=L.tileLayer('https://api.maptiler.com/maps/jp-mierune-gray/256/{z}/{x}
 
 L.geoJson(japan).addTo(map);
 var markericon=L.icon({
-  iconUrl:'icons8-visit-50.png',
+  iconUrl:'素材/icons8-visit-50.png',
   popupAnchor:[25,0]
 });
 
