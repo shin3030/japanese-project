@@ -1,7 +1,4 @@
-body{
-    margin: 0;
-    padding: 0;
- }
+
  .section{
         position: relative;
         margin: 0;
@@ -38,20 +35,53 @@ body{
     object-fit: cover;
     
 }
+/* ///////////////////////////// */
+.content{
+    position: absolute;
+      top: 20%;
+      left: 32.5%;
+      width: 600px;
+      height: auto;
+      padding: 20px;
+  }
+  .section-title h1{
+   text-align: center;
+   
+    color: rgb(17, 2, 185);
+      font-weight: 800;
+      text-decoration-skip: space;
+      border-bottom: 4px solid #4369c8;
+      width: 100%;
+      font-size: 60px;
+  }
+  .section-title .card{
+    font-size: 25px;
+    font-weight: 800;
+    border-radius: 10px;
+    margin-top: 50px;
+    background-color: #0674cf72;
+    color: #cccbcb;
+    justify-content:center;
+    align-items: start;
+   padding: 10px;
+   box-shadow: 2px 4px 10px rgba(0, 58, 133, 0.674);
+  }
+
+
 .back-card{  
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: rgba(73, 165, 231, 0.673);
-    width: auto;
+    width:fit-content;
     height: auto;
     border-radius: 5px;
 }
 .card-50{
     position: absolute;
-    top: 20%;
-    right: 5%;
-    transform: translateY(-50%);
+    top: 35%;
+    left: 28.5%;
+
 }
 
 .back-card img{
@@ -80,16 +110,16 @@ body{
     font-size: 20px;
     font-weight: bold;
 }
+
 .card-content-50{
     position: absolute;
-    top: 35%;
-    left: 10%;
-    transform: translate(-5%,-50%);
+    top: 10%;
+    left: 35%;
 }
 .card-ga{
     position: absolute;
     top: 50%;
-    left: 23%;
+    left: 26%;
 
 }
 
@@ -101,17 +131,18 @@ body{
 .card-ya{
     position: absolute;
     top: 35%;
-    left: 24%;
+    left: 26.5%;
 
 }
 .card-content-ya{
     position: absolute;
     top: 15%;
     left: 35%;
-    transform: translate(-50%,-20%);
+
 }
 .passline{
     width: 100%;
     height: 5px;
     background-color: rgb(6, 95, 159);
 }
+

@@ -71,36 +71,36 @@ var markers = [];
         }
     });
 
-function getcolor(d){
-  switch(d){
-    case '北海道':
-      return '#004B97';
-    case '東北地區':
-      return '#00CACA';
-    case '關東地區':
-      return '#00A600';  
-    case '中部地區':
-      return '#C4C400';
-    case '近畿地區':
-      return '#F9F900';
-    case '中國地區':
-      return '#FF8000';
-    case '四國地區':
-      return '#F75000';
-    case '九州地區':
-      return '#EA0000';
-    case '沖繩地區':
-      return '#D200D2';
-   
-  }
-}
+    function getcolor(d){
+        switch(d){
+          case '北海道':
+            return '#33a8c7';
+          case '東北地區':
+            return '#52e3e1';
+          case '關東地區':
+            return '#a0e426';  
+          case '中部地區':
+            return '#e79580';
+          case '近畿地區':
+            return '#fdf148';
+          case '中國地區':
+            return '#ffab00';
+          case '四國地區':
+            return '#f77976';
+          case '九州地區':
+            return '#f050ae';
+          case '沖繩地區':
+            return '#9336fd';
+         
+        }
+      }
 
 function style(feature){
     return{
         fillColor:getcolor(feature.properties.area),
         weight: 2.5,
         opacity: 0.8,
-        color:'grey',
+        color:'#b89e14',
         dashArray:'3',
         fillOpacity: 0.5
     };

@@ -1,50 +1,80 @@
-body{
-    margin: 0;
-    overflow-y:hidden ;
-    overflow-x: hidden;
+
+  /* ///////////背景/////////////// */
+  *{
+    
+    box-sizing: border-box;
+}
+  body{
+    min-height: 100vh;
+    overflow: hidden;
+    background:linear-gradient(150deg,rgb(232, 164, 175),rgb(136, 52, 167)) ;
   }
-  .container{
-    width: 100%;
-    height: 100%;
-    scroll-snap-type: y mandatory;
-    overflow-y: hidden;
-    overflow-x: hidden;
+
+.container-bubble{
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+.bubbles{
+  position: relative;
+  display: flex;
+}
+.bubbles span{
+  position: relative;
+  width: 20px;
+  height: 20px;
+  background: #dc4fc7;
+  margin: 0 4px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 10px #dc4fc744,
+  0 0 50px #dc4fc7,0 0 100px #dc4fc7;
+  animation: bubble 15s linear infinite;
+  animation-duration: calc(125s/var(--i));
+  
+
+}
+.bubbles span:nth-child(even){
+  background: #fa87fa;
+  box-shadow: 0 0 0 10px #fa87fa44,
+  0 0 50px #fa87fa,0 0 100px #fa87fa;
+}
+@keyframes bubble{
+  0%{transform:translateX(0) translateY(-10vh) scale(0);}
+  100%{transform:translateX(20vw) translateY(100vh) scale(0.5);}
+}
+/* ///////////////////// */
+
+
+  .container-begin{
+    
+    padding: 0;
+    width:100%;
+    height: 100vh;
   }
   .homepage{
     position:absolute;
     left: 0;
     width: 100%;
-      height: 100%;
+      height: 100vh;
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       align-items: center;
-      background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
-      scroll-snap-type: start;
+      background:transparent;
+      backdrop-filter: blur(5px);
       z-index:1;
       opacity: 0;
-      border-top-left-radius: 25%;
-      border-top-right-radius: 25%;
-      transition: border-top-left-radius 1s ease, border-top-right-radius 1s ease;
   }
   .beginpage{
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    scroll-snap-type: start;
+
 
 }
-   
-  video{
-    position:fixed;
-    top: 0;
-    left: 0;
-    min-width: 100%;
-    height:auto;
-    opacity: 0.8;
-  }
+
   /* ///////////////////////////////// */
   
   /*///////////////// 跳動標題 //////////////*/
@@ -53,7 +83,7 @@ body{
     top: 40%;
     left: 50%;
     transform: translate(-50%,-50%);
-    border-bottom: 5px solid #b973d2;
+    border-bottom: 5px solid #a94bcc;
     width: 30%;
     text-align: center;
     color: #fff;
@@ -235,9 +265,9 @@ body{
     z-index: 999999;
     background-image: linear-gradient(45deg,#8B5CF6,#EC4899);
     width: 100%;
-    height: 100%;
+    height: 100vh;
     left: 0;
-    animation: loading 1.5s ease;
+    animation: loading 1s ease;
     animation-iteration-count: 1;
     animation-fill-mode:forwards;
    
@@ -421,4 +451,5 @@ hr{
     transform: translateY(0%); 
     
    }
+
     

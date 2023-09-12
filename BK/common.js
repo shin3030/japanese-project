@@ -5,6 +5,7 @@ $(document).ready(function () {
     $(window).scroll(function () {
       let value = $(window).scrollTop();
       $('#cloud').css('left', value * 0.3 + 'px');
+      $('#cloud').css('top', value * 0.15 + 'px');
       $('#sunrisecloud').css('left', value * 0.3 + 'px');
       $('#sunrisecloud').css('top', value * 0.3 + 'px');
       $('#sunsetcloud').css('left', value * 0.2 + 'px');
@@ -46,6 +47,7 @@ $(document).ready(function () {
       );
     });
 
+    AOS.init();
     
   });
   

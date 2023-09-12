@@ -1,8 +1,5 @@
 
-body{
-    margin: 0;
-    padding: 0;
- }
+
  .section-img{
     position: relative;
     width: 100%;
@@ -89,6 +86,7 @@ flex-direction: row;
  flex-wrap: wrap;
 
 }
+/* /////////////////////// */
 .btn-voc{
   padding: 10px;
   margin: 20px;
@@ -105,12 +103,19 @@ flex-direction: row;
       justify-content: center;
       cursor: pointer;
       transition: transform 0.5s, background-color 0.2s, color 0.2s;
+      box-shadow:
+   4px 4px 5px 0px rgba(72, 72, 72, 0.6);
+   
+  
+  transition: all 0.3s ease;
 }
 .btn-voc:hover {
             background-color: black;
             color: white;
             transform: scale(1.2);
         }
+/* /////////////////////////////*/
+
 
 .section-voc{
       position: relative;
