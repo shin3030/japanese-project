@@ -1,17 +1,15 @@
 
+  
+  
   /* ///////////背景/////////////// */
-  *{
-    
-    box-sizing: border-box;
-}
+ 
   body{
     min-height: 100vh;
-    overflow: hidden;
-    background:linear-gradient(150deg,rgb(232, 164, 175),rgb(136, 52, 167)) ;
   }
-
+ 
 .container-bubble{
-  position: relative;
+  background:linear-gradient(150deg,rgb(238, 148, 163),rgb(195, 118, 223)) ;
+  position: fixed;
   width: 100%;
   height: 100vh;
 }
@@ -40,35 +38,29 @@
 }
 @keyframes bubble{
   0%{transform:translateX(0) translateY(-10vh) scale(0);}
-  100%{transform:translateX(20vw) translateY(100vh) scale(0.5);}
+  100%{transform:translateX(20vw) translateY(100vh) scale(0.8);}
 }
 /* ///////////////////// */
+section{
+  width: 100%;
+  height: 100vh;
+}
 
-
-  .container-begin{
-    
-    padding: 0;
-    width:100%;
-    height: 100vh;
-  }
-  .homepage{
-    position:absolute;
-    left: 0;
-    width: 100%;
-      height: 100vh;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-items: center;
-      background:transparent;
+.sec-2{
+    position: relative;
+      background:rgba(255, 255, 255, 0.215);
       backdrop-filter: blur(5px);
       z-index:1;
-      opacity: 0;
+      display: flex;
+    flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+
   }
-  .beginpage{
+.beginpage{
     width: 100%;
     height: 100vh;
-    display: flex;
+    display: grid;
     justify-content: center;
     align-items: center;
 
@@ -76,21 +68,88 @@
 }
 
   /* ///////////////////////////////// */
+  .logo-card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .logo{
+    width: 200px;
+    position: relative;
+    animation: rotate 3s;
+    
+  }
+  @keyframes rotate {
+    0%{transform: translateX(-100%) rotateZ(-360deg);}
+    100%{transform: translateX(0);}  
+  }
+  .sec-1 .logoback{
+    z-index: 1;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-color: #f192ed;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    box-shadow:0 0 0 5px #f192ed44,
+    0 0  10px #f192ed,
+    0 0  15px #f192ed ;
+    cursor: pointer;
+    
+  }
   
+  .logoback:hover{
+    transform: scale(0.8) rotateZ(10deg);
+  }
+  .sec-1.show .logoback{
+    opacity: 1;
+    transition: opacity 3s;
+
+  }
+  .sec-1 .logoback{
+    opacity: 0;
+  }
+  .sec-1.show .logo{
+    opacity: 1;
+    transform: translateX(0);
+  transition: all 2s;
+  }
+  .sec-1 .logo{
+    opacity: 0;
+    transform: translateX(-100%) rotateZ(-360deg);
+
+  }
+
   /*///////////////// 跳動標題 //////////////*/
   .bounce-text h1 {
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translateY(-100%);
     border-bottom: 5px solid #a94bcc;
-    width: 30%;
+    width:500px;
     text-align: center;
     color: #fff;
     font-weight: 700;
     z-index: 1;
-    
+    font-size: 60px;
   }
+.bounce-text{
+  animation: h1animate 4s;
+}
+@keyframes h1animate {
+  0%{transform: translateY(-100%) ;opacity:0;}
+  
+}
+ .sec-1.show .bounce-text{
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 2s;
+ }
+ .sec-1 .bounce-text{
+  opacity: 0;
+  transform: translateY(-100%);
+ }
+
   
   .bounce-text h1 span {
     animation: animatetxt 2s linear infinite;
@@ -162,102 +221,7 @@
   }
   /* ////////////////////// */
   
-  /*//////////////開始按鈕///////////////////////////*/
-  
-  .frame {
-    position: absolute;
-    top: 55%;
-    left: 50%;
-    text-align: center;
-  }
-  button {
-    transform: translate(-50%,-50%);
-    z-index: 1;
-  }
-  .custom-btn {
-    width: 130px;
-    height: 40px;
-    color: #fff;
-    border-radius: 5px;
-    padding: 10px 25px;
-    font-family: 'Lato', sans-serif;
-    font-weight: bold;
-    font-size: 20px;
-    background: transparent;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    position: relative;
-    display: inline-block;
-     box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
-     7px 7px 20px 0px rgba(0,0,0,.1),
-     4px 4px 5px 0px rgba(0,0,0,.1);
-    outline: none;
-  }
-  .btn-8 {
-    background-color: #f0ecfc;
-  background-image: linear-gradient(315deg, #f0ecfc 0%, #c797eb 74%);
-    line-height: 42px;
-    padding: 0;
-    border: none;
-  }
-  .btn-8 span {
-    position: relative;
-    display: block;
-    width: 100%;
-    height: 100%;
-  }
-  .btn-8:before,
-  .btn-8:after {
-    position: absolute;
-    content: "";
-    right: 0;
-    bottom: 0;
-    background: #c797eb;
-    transition: all 0.3s ease;
-  }
-  .btn-8:before{
-     height: 0%;
-     width: 2px;
-  }
-  .btn-8:after {
-    width: 0%;
-    height: 2px;
-  }
-  .btn-8:hover:before {
-    height: 100%;
-  }
-  .btn-8:hover:after {
-    width: 100%;
-  }
-  .btn-8:hover{
-    background: transparent;
-  }
-  .btn-8 span:hover{
-    color: #c797eb;
-  }
-  .btn-8 span:before,
-  .btn-8 span:after {
-    position: absolute;
-    content: "";
-    left: 0;
-    top: 0;
-    background: #c797eb;
-    transition: all 0.3s ease;
-  }
-  .btn-8 span:before {
-    width: 2px;
-    height: 0%;
-  }
-  .btn-8 span:after {
-    height: 2px;
-    width: 0%;
-  }
-  .btn-8 span:hover:before {
-    height: 100%;
-  }
-  .btn-8 span:hover:after {
-    width: 100%;
-  }
+
   
   /*////////////////////// 加載動畫 /////////////////*/
   .load_bg{
@@ -341,9 +305,16 @@
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    opacity: 0;
-    transition: opacity 2s ease;
-    
+}
+.sec-2 .card{
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: all 1.5s;
+  transition-delay: calc(.2s*var(--c));
+}
+.sec-2.show .card{
+  opacity: 1;
+  transform: translateX(0);
 }
 .card .card-content{
   width: 280px;
@@ -450,6 +421,12 @@ hr{
 .card:hover::after{
     transform: translateY(0%); 
     
+   }
+
+   .card img{
+   position: fixed;
+   width: 100%;
+   height: 100%;
    }
 
     
