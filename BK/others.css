@@ -30,7 +30,7 @@
     height:100vh;
     overflow: hidden;
     background-repeat: no-repeat;
-    background:linear-gradient(to bottom,rgb(41,2,52),rgb(14,73,145));
+    background:linear-gradient(to bottom,rgb(52, 12, 63),rgb(14,73,145));
     background-position: top center;
 }
 .section-img::before{

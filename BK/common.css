@@ -4,6 +4,9 @@ body{
   margin: 0;
   padding: 0;
 }
+.download{
+  color: #2f98f5;
+}
 /* ////////頂部按鈕///////// */
 .back-top {
     z-index: 3;
@@ -72,11 +75,18 @@ font-size: 1.8em;
 font-weight: bold;
 }
 .navbar .navbar-nav .nav-link:hover {
-    background-color: #173aea;
+    background:var(--h);
     color: #fbfbfb;
     } 
 .dropdown:hover .dropdown-menu{
     display: block;
+    background: var(--hm);
+}
+.dropdown-item:hover{
+  background:var(--hh);
+}
+.b{
+  background-color: rgb(102, 51, 183);
 }
 /* /////////////////////// */
 
