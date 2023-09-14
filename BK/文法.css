@@ -26,7 +26,8 @@
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    -o-object-fit: cover;
+       object-fit: cover;
     
 }
 /* ///////////////////////// */
@@ -95,7 +96,8 @@ h5{
  
   color: rgb(165, 68, 187);
     font-weight: 800;
-    text-decoration-skip: space;
+    -webkit-text-decoration-skip: space;
+            text-decoration-skip: space;
     border-bottom: 4px solid #b973d2;
     width: 100%;
     font-size: 60px;

@@ -10,10 +10,10 @@ $(document).ready(function () {
       $('#sunrisecloud').css('top', value * 0.3 + 'px');
       $('#sunsetcloud').css('left', value * 0.2 + 'px');
       $('#sunsetcloud').css('top', value * 0.25 + 'px');
-      $('#sun').css('top', value * 0.35 + 'px');
+      $('#sun').css('top', value * 0.4 + 'px');
       $('#sun').css('left', value * 0.4 + 'px');
       $('#sunset').css('top', value * 0.4 + 'px');
-      $('#mount').css('top', value * 0.2 + 'px');
+      $('#mount').css('top', value * 0.3 + 'px');
       if (value > 500) {
         $('#sun').css('display', 'none');
       } else {
