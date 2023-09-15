@@ -292,7 +292,7 @@ section{
     border-radius: 8%;
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: center;
 }
 .sec-2 .card{
   opacity: 0;
@@ -321,8 +321,9 @@ hr{
   opacity: 0;
 }
 .card-content h2{
-  transform: translateX(75px);
+  transform: translateX(65px);
     opacity: 1;
+    margin-bottom: 15px;
     font-size: 50px;
     font-weight: 900;
     color: #ffffff;
@@ -392,7 +393,7 @@ hr{
 
     /* ///// */
     .card-content a {
-      margin-top: 10px;
+      margin-top: 5px;
       text-decoration: none;
       position:relative;
       display: flex;
