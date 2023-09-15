@@ -38,9 +38,9 @@ var markers = [];
                     }
                     openPopupMarker = this;
 
-                    var popupContent = "<h3>" + location.name + "</h3>" +
-                                    (location.option?"<p style='font-size:20px'>"+location.option+"</p>":'')
-                                    +"<img src='" + location.photo + "' alt='" + location.name + "' style='width:300px; height: auto;'>"
+                    var popupContent = "<h3 style='font-weight:bold'>" + location.name + "</h3>" +
+                                    (location.option?"<p style='font-size:18px;font-weight:bold;'>"+location.option+"</p>":'')
+                                    +"<img src='" + location.photo + "' alt='" + location.name + "' style='width:300px; height: 150px;'>"
                                   ;
 
                     this.bindPopup(popupContent,{
@@ -160,8 +160,8 @@ info.onAdd = function (map) {
 
 
 info.update = function (props) {
-    this._div.innerHTML = '<h4>日本行政區</h4>' +  (props ?'地區:'+props.area+'<br />'+
-        '行政區:'+'<b>' + props.nam_ja + '</b><br />' + props.nam +''+'<br />'
+    this._div.innerHTML = '<h4>日本行政區</h4>' +  (props ?'<span>地區:'+props.area+'</span><br />'+
+        '<span>行政區:'+'<b>' + props.nam_ja + '</span></b><br /><span>' + props.nam +'</span>'+'<br />'
         : 'Hover over a state');
 };
 
