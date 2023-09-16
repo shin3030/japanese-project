@@ -85,7 +85,6 @@ font-weight: bold;
 .dropdown-item:hover{
   background:var(--hh);
 }
-
 .others-menu .dropdown .dropdown-item{
   color: wheat;
 }

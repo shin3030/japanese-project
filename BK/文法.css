@@ -37,9 +37,7 @@
         min-height: 100vh;
         background-color: rgb(103,12,60);
         width: 100%;
-        padding:10% 0 10% 0;
-        justify-content: center;
-        align-items: center;
+        padding: 100px 25% 100px 25%;
         
        
     }
@@ -53,7 +51,7 @@
   
     text-align: left;
     border:5px grey solid;
-    padding:30px;
+    padding:40px;
     background-color: rgb(248, 237, 235);
     width: 800px;
 }

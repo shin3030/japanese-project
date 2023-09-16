@@ -139,6 +139,7 @@ flex-direction: row;
     width: 800px;
     text-align: center;
     border:5px grey solid;
+    padding:40px;
     background-color: rgb(248, 237, 235);
     display:block;
 
