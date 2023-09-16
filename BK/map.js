@@ -18,6 +18,7 @@ var markericon=L.icon({
   popupAnchor:[25,0]
 });
 
+
 var markers = [];
 
     var openPopupMarker = null;
@@ -25,9 +26,8 @@ var markers = [];
         (function() {
             var location = locations[i];
             var marker = L.marker(location.latlng,{ icon: markericon });
-
             markers.push(marker);
-
+            
             marker.on('click', function() {
                 if (openPopupMarker === this) {
                     this.closePopup();
@@ -57,7 +57,7 @@ var markers = [];
         var currentZoom = map.getZoom();
 
     
-        if (currentZoom > 9) {
+        if (currentZoom > 8) {
            
             for (var i = 0; i < markers.length; i++) {
                 markers[i].addTo(map);
@@ -119,6 +119,7 @@ function highlightFeature(e) {
         fillOpacity: 0.6
     });
     info.update(layer.feature.properties);
+    legend.update(layer.feature.properties);
     if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
         layer.bringToFront();
     }
@@ -127,6 +128,7 @@ function highlightFeature(e) {
 function resetHighlight(e) {
     geojson.resetStyle(e.target);
     info.update();
+  
 }
 
 var geojson;
@@ -158,11 +160,52 @@ info.onAdd = function (map) {
     return this._div;
 };
 
+var locationCounts = {};
+var locationtotal=0;
+for(var i=0 ;japan.features.length>i;i++){
+    var feature=japan.features[i];
+    var namzh=feature.properties.nam_zh;
+    locationCounts[namzh]=0;
+    for(var j=0;locations.length>j;j++){
+        var county=locations[j].county;
+        if (county === namzh) {
+            locationtotal++;
+            if (!locationCounts[namzh]) {
+                locationCounts[namzh] = 1;
+            } else {
+                locationCounts[namzh]++;
+            }
+        }
+    }
+    
+}
+
+
+
 
 info.update = function (props) {
-    this._div.innerHTML = '<h4>日本行政區</h4>' +  (props ?'<span>地區:'+props.area+'</span><br />'+
-        '<span>行政區:'+'<b>' + props.nam_ja + '</span></b><br /><span>' + props.nam +'</span>'+'<br />'
+     
+    this._div.innerHTML = '<h4>日本行政區</h4>' +  (props ?'<span>地區:'+props.area+'</span><br/>'+
+        '<span>行政區(中):' + props.nam_zh + '</span><br />'+'<span>行政區(日):' + props.nam_ja + '</span><br /><span>' + props.nam +'</span>'+'<br />'
         : 'Hover over a state');
-};
+    
+}
 
 info.addTo(map);
+
+var legend = L.control({position: 'bottomright'});
+
+legend.onAdd = function (map) {
+
+    this.div = L.DomUtil.create('div', 'legend');
+    this.update();
+   return this.div;
+};
+legend.update=function(props){
+    this.div.innerHTML='<h5>景點標記資訊</h5><span>景點總數:'+ locationtotal+'</span><br/>'+
+    '<span>此區景點數:'+ (props? locationCounts[props.nam_zh] : 0)+'</span>'
+
+    
+}
+
+legend.addTo(map);

@@ -4,6 +4,7 @@ var locations=
           name: "淡路島hello kitty smile",
           jp_name: "(あわじしま ハローキティスマイル)",
           latlng: [34.5672, 134.9524],
+          county:"兵庫縣",
           photo: "景點/淡路島hello kitty smile.jpg",
           option: ""
         },
@@ -11,6 +12,7 @@ var locations=
           name: "明石海峡大橋",
           jp_name: "(あかしかいきょうおおはし)",
           latlng: [34.6176, 135.0216],
+          county:"兵庫縣",
           photo: "景點/明石海峡大橋.jpg",
           option: ""
         },
@@ -18,6 +20,7 @@ var locations=
           name: "平安神宮",
           jp_name: "(へいあんじんぐう)",
           latlng: [35.0161, 135.7824],
+          county:"京都府",
           photo: "景點/平安神宮.jpg",
           option: ""
         },
@@ -25,6 +28,7 @@ var locations=
           name: "下鴨神社",
           jp_name: "(しもがもじんじゃ)",
           latlng: [35.0391, 135.7729],
+          county:"京都府",
           photo: "景點/下鴨神社.jpg",
           option: ""
         },
@@ -32,6 +36,7 @@ var locations=
           name: "河合神社",
           jp_name: "(かわいじんじゃ)",
           latlng: [35.03495053528841, 135.77194609991912],
+          county:"京都府",
           photo: "景點/河合神社.jpg",
           option: ""
         },
@@ -39,6 +44,7 @@ var locations=
           name: "琵琶湖觀景台",
           jp_name: "(びわこテラス)",
           latlng: [35.22003450215982, 135.89380405967754],
+          county:"滋賀縣",
           photo: "景點/琵琶湖觀景台.jpg",
           option: ""
         },
@@ -46,6 +52,7 @@ var locations=
           name: "南禪寺",
           jp_name: "(なんぜんじ)",
           latlng: [35.011585712043264, 135.79446698619222],
+          county:"京都府",
           photo: "景點/南禪寺.jpg",
           option: ""
         },
@@ -53,6 +60,7 @@ var locations=
           name: "六角堂",
           jp_name: "(ちょうほうじ)",
           latlng: [35.014180705719745, 135.7595696519305],
+          county:"京都府",
           photo: "景點/六角堂.jpg",
           option: ""
         },
@@ -60,6 +68,7 @@ var locations=
           name: "錦天滿宮",
           jp_name: "(にしきてんまんぐう)",
           latlng: [35.00514416801074, 135.76726611340865],
+          county:"京都府",
           photo: "景點/錦天滿宮.jpg",
           option: ""
         },
@@ -67,6 +76,7 @@ var locations=
           name: "錦市場",
           jp_name: "(にしきいちば)",
           latlng: [35.006687919384156, 135.76460981437376],
+          county:"京都府",
           photo: "景點/錦市場.jpg",
           option: ""
         },
@@ -74,6 +84,7 @@ var locations=
           name: "姬路城",
           jp_name: "(ひめじじょう)",
           latlng: [34.839651532165206, 134.69390469991916],
+          county:"兵庫縣",
           photo: "景點/姬路城.jpg",
           option: "由於白色外牆也被稱作「白鷺城」，為日本三大名城之一。1993年成為日本首個世界遺產，有「日本第一名城」美名。"
         },
@@ -81,6 +92,7 @@ var locations=
           name: "京都御苑",
           jp_name: "(きょうとぎょえん)",
           latlng: [35.02334382590117, 135.76346696915297],
+          county:"京都府",
           photo: "景點/京都御苑.jpg",
           option: ""
         },
@@ -88,6 +100,7 @@ var locations=
           name: "二條城",
           jp_name: "(にじょうじょう)",
           latlng: [35.01441987784439, 135.74821753543372],
+          county:"京都府",
           photo: "景點/二條城.jpg",
           option: ""
         },
@@ -95,6 +108,7 @@ var locations=
           name: "晴明神社",
           jp_name: "(せいめいじんじゃ)",
           latlng: [35.0279181400215, 135.7511694710835],
+          county:"京都府",
           photo: "景點/晴明神社.jpg",
           option: ""
         },
@@ -102,6 +116,7 @@ var locations=
           name: "御金神社",
           jp_name: "(みかねじんじゃ)",
           latlng: [35.01199604583906, 135.75500445869716],
+          county:"京都府",
           photo: "景點/御金神社.jpg",
           option: ""
         },
@@ -109,6 +124,7 @@ var locations=
           name: "大阪梅田藍天大樓",
           jp_name: "(うめだスカイビル)",
           latlng: [34.70535273346036, 135.4896456875148],
+          county:"大阪府",
           photo: "景點/大阪梅田藍天大樓.jpg",
           option: ""
         },
@@ -116,6 +132,7 @@ var locations=
           name: "通天閣",
           jp_name: "(つうてんか)",
           latlng: [34.6526492098591, 135.50628433910666],
+          county:"大阪府",
           photo: "景點/通天閣.jpg",
           option: ""
         },
@@ -123,6 +140,7 @@ var locations=
           name: "京都塔",
           jp_name: "(きょうと タワー)",
           latlng: [34.98763474128788, 135.75921961028192],
+          county:"京都府",
           photo: "景點/京都塔.jpg",
           option: ""
         },
@@ -130,6 +148,7 @@ var locations=
             name: "平等院",
             jp_name: "(びょうどういん)",
             latlng: [34.88944040703848, 135.80764611341215],
+            county:"京都府",
             photo: "景點/平等院.jpg",
             option: "鳳凰堂的建筑印在日圆十元硬币上，这座日本早期木构建筑，被认为是古代日本人对于西方极乐世界的极致具体实现。"
           },
@@ -137,6 +156,7 @@ var locations=
             name: "清水寺",
             jp_name: "(きよみずでら)",
             latlng: [34.995040643719115, 135.7850141102821],
+            county:"京都府",
             photo: "景點/清水寺.jpg",
             option: ""
           },
@@ -144,6 +164,7 @@ var locations=
             name: "貴船神社",
             jp_name: "(きぶねじんじゃ)",
             latlng: [35.131811498682666, 135.76014231289605],
+            county:"京都府",
             photo: "景點/貴船神社.jpg",
             option: ""
           },
@@ -151,6 +172,7 @@ var locations=
             name: "八坂神社",
             jp_name: "(やさかじんじゃ )",
             latlng: [35.01732432872339, 135.7774084675863],
+            county:"京都府",
             photo: "景點/八坂神社.jpg",
             option: ""
           },
@@ -158,6 +180,7 @@ var locations=
             name: "道頓崛",
             jp_name: "(どうとんぼり)",
             latlng: [34.669008836459014, 135.503105034773],
+            county:"大阪府",
             photo: "景點/道頓崛.jpg",
             option: ""
           },
@@ -165,6 +188,7 @@ var locations=
             name: "黑門市場",
             jp_name: "(くろもんいちば)",
             latlng: [34.66553908387263, 135.50618378143676],
+            county:"大阪府",
             photo: "景點/黑門市場.jpg",
             option: ""
           },
@@ -172,6 +196,7 @@ var locations=
             name: "心齋橋",
             jp_name: "(しんさいばし)",
             latlng: [34.67113219842464, 135.501249713493],
+            county:"大阪府",
             photo: "景點/心齋橋.jpg",
             option: ""
           },
@@ -179,6 +204,7 @@ var locations=
             name: "臨空城",
             jp_name: "(りんくうタウン)",
             latlng: [34.40649489907472, 135.29542375442574],
+            county:"大阪府",
             photo: "景點/臨空城.jpg",
             option: ""
           },
@@ -186,6 +212,7 @@ var locations=
             name: "甲子園",
             jp_name: "(こうしえん)",
             latlng: [34.72147218234499, 135.36161987453121],
+            county:"兵庫縣",
             photo: "景點/甲子園.jpg",
             option: ""
           },
@@ -194,6 +221,7 @@ var locations=
               name: "大阪城",
               jp_name: "(おおさかじょう)",
               latlng: [34.6873, 135.5258],
+              county:"大阪府",
               photo: "景點/大阪城.jpg",
               option: ""
             },
@@ -201,6 +229,7 @@ var locations=
               name: "大通公園",
               jp_name: "(おおどおりこうえん)",
               latlng: [35.1991, 136.8447],
+              county:"愛知縣",
               photo: "景點/大通公園.jpg",
               option: ""
             },
@@ -208,6 +237,7 @@ var locations=
               name: "小樽運河",
               jp_name: "(おたるうんが)",
               latlng: [43.2022, 141.0006],
+              county:"北海道",
               photo: "景點/小樽運河.jpg",
               option: ""
             },
@@ -215,6 +245,7 @@ var locations=
               name: "日光東照宮",
               jp_name: "(にっこうとうしょうぐう)",
               latlng: [36.7578, 139.5993],
+              county:"栃木縣",
               photo: "景點/日光東照宮.jpg",
               option: ""
             },
@@ -222,6 +253,7 @@ var locations=
               name: "白色戀人觀光工廠",
               jp_name: "(しろいこいびとパーク)",
               latlng: [43.0889, 141.2717],
+              county:"北海道",
               photo: "景點/白色戀人觀光工廠.jpg",
               option: ""
             },
@@ -229,6 +261,7 @@ var locations=
               name: "白鬚瀑布",
               jp_name: "(しらひげのたき)",
               latlng: [43.4746, 142.6393],
+              county:"北海道",
               photo: "景點/白鬚瀑布.jpg",
               option: "位於海拔600公尺高的山上、北海道大雪山國立公園內，瀑布高度落差30公尺，因白鬚瀑布湧出的是溫泉水，所以即使是冬天也不會結凍！"
             },
@@ -236,6 +269,7 @@ var locations=
               name: "伏見稻荷大社",
               jp_name: "(ふしみいなりたいしゃ)",
               latlng: [34.9671, 135.7727],
+              county:"京都府",
               photo: "景點/伏見稻荷大社.jpg",
               option: "提到「朱紅色鳥居」，千本鳥居(Senbon Torii)，人們馬上就會聯想到「稻荷神社」，赤紅的色彩已深植人心。而紅色亦承載著對於擁有生命、大地、生產力量的稻荷大神「御靈」功績的強烈信仰。"
             },
@@ -243,6 +277,7 @@ var locations=
               name: "明治神宮",
               jp_name: "(めいじじんぐう)",
               latlng: [35.6764, 139.6993],
+              county:"東京都",
               photo: "景點/明治神宮.jpg",
               option: ""
             },
@@ -250,6 +285,7 @@ var locations=
               name: "東京鐵塔",
               jp_name: "(とうきょうタワ)",
               latlng: [35.6586, 139.7454],
+              county:"東京都",
               photo: "景點/東京鐵塔.jpg",
               option: ""
             },
@@ -257,6 +293,7 @@ var locations=
               name: "金閣寺",
               jp_name: "(きんかくじ)",
               latlng: [35.0393, 135.7292],
+              county:"京都府",
               photo: "景點/金閣寺.jpg",
               option: "原名「鹿苑寺」的寺院因為外觀貼滿金箔，所以又有個響亮的別稱「金閣寺」，其中最為漂亮的景為金閣寺與湖中金閣寺的倒影。"
             },
@@ -264,6 +301,7 @@ var locations=
               name: "祇園祭",
               jp_name: "(ぎおんまつり)",
               latlng: [35.0041, 135.7581],
+              county:"京都府",
               photo: "景點/祇園祭.jpg",
               option: ""
             },
@@ -271,6 +309,7 @@ var locations=
               name: "淺草寺",
               jp_name: "(せんそうじ)",
               latlng: [35.7147, 139.7966],
+              county:"東京都",
               photo: "淺草寺.jpg",
               option: ""
             },
@@ -278,6 +317,7 @@ var locations=
               name: "富士山河口湖",
               jp_name: "(ふじさん かわぐちこ)",
               latlng: [35.4925, 138.6847],
+              county:"山梨縣",
               photo: "景點/富士山河口湖.jpg",
               option: "河口湖位於日本山梨縣、東京西邊，是可以完整欣賞到富士山美景、屬於日本富士五湖之一，知名度最高的湖泊。"
             },
@@ -285,6 +325,7 @@ var locations=
               name: "晴空塔",
               jp_name: "(とうきょうスカイツリ)",
               latlng: [35.71, 139.81],
+              county:"東京都",
               photo: "景點/晴空塔.jpg",
               option: ""
             },
