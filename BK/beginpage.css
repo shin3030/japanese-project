@@ -321,7 +321,7 @@ hr{
   opacity: 0;
 }
 .card-content h2{
-  transform: translateX(65px);
+  text-align: center;
     opacity: 1;
     margin-bottom: 15px;
     font-size: 50px;
@@ -330,7 +330,7 @@ hr{
   text-shadow: 5px 5px 5px rgb(72, 72, 72);
 
 }
-.card-content #letter{transform: translateX(45px);}
+
 .card:hover .card-content hr{opacity: 1;}
 .card:hover .card-content a{opacity: 1;}
 
