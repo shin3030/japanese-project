@@ -85,20 +85,29 @@
     <div class="section-title">
       <div data-aos="zoom-in" data-aos-duration="1000" data-aos-easing="ease" class="content">
       <h1 class="title">小故事</h1>
-      
-  
+      <div class="switch_container">
+        <span id="status">閱讀版</span>
+    <label class="switch">
+        <input type="checkbox" id="toggle">
+        <span class="slider"></span>
+    </label>
+    <span id="status">朗讀版</span>
+  </div>
+  <div class="c1">
   <div class="describe"><p>漢字附有50音:</p></div>
-      <div class="card card-story c1">
+      <div class="card card-story">
         <button class="btn-story custom-btn" onclick="showstory(1)">一寸法師</button>
        <button class="btn-story custom-btn" onclick="showstory(2)">龜兔賽跑</button>
         <button class="btn-story custom-btn" onclick="showstory(3)">桃太郎</button>
-      </div>
+      </div></div>
+
+      <div class="c2">
       <div class="describe"><span >漢字不附有50音無中文:</span><span class="readaloud">可以使用朗讀工具<a href="">Read Aloud</a></span></div>
-      <div class="card card-story c2">
+      <div class="card card-story">
         <button class="btn-story custom-btn loud" onclick="showstory(4)">一寸法師</button>
        <button class="btn-story custom-btn loud" onclick="showstory(5)">龜兔賽跑</button>
         <button class="btn-story custom-btn loud" onclick="showstory(6)">桃太郎</button>  
-      </div>
+      </div></div>
     </div>
     </div>
 
@@ -448,6 +457,26 @@
     <div class="back-top hide" title="回頂部"><i class="fa fa-arrow-up"></i></div>
 </body>
 <script>
+  const toggle = document.getElementById('toggle');
+const c1cards = document.querySelectorAll('.c1');
+const c2cards = document.querySelectorAll('.c2');
+toggle.addEventListener('change', function () {
+    if (toggle.checked) {
+        c1cards.forEach(card => {
+                card.style.display = 'none';
+            });
+            c2cards.forEach(card => {
+                card.style.display = 'block';
+            });
+    } else {
+        c1cards.forEach(card => {
+                card.style.display = 'block';
+            });
+            c2cards.forEach(card => {
+                card.style.display = 'none';
+            });
+    }
+});
     function showstory(courseNumber) {
     const courseCards = document.querySelectorAll('.section');
     courseCards.forEach(card => {
