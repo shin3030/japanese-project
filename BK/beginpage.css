@@ -5,6 +5,7 @@
  
   body{
     min-height: 100vh;
+    overflow-x: hidden;
   }
  
 .container-bubble{
@@ -12,6 +13,7 @@
   position: fixed;
   width: 100%;
   height: 100vh;
+  overflow: hidden;
 }
 .bubbles{
   position: relative;
@@ -50,11 +52,12 @@
 section{
   width: 100%;
   height: 100vh;
+  overflow: hidden;
 }
 
 .sec-2{
     position: relative;
-      background:transparent;
+      background:rgba(255, 255, 255, 0.312);
       -webkit-backdrop-filter: blur(10px);
               backdrop-filter: blur(10px);
       z-index:1;
@@ -62,8 +65,227 @@ section{
     flex-wrap: wrap;
       justify-content: center;
       align-items: center;
+  }
+ 
+  
+  .sec-transpant{
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    background:var(--secimg);
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+    z-index: 1;
+   
+  }
+  .sec-3card{
+    display: grid;
+    align-items: center;
+    justify-items: center;
+  }
+  .sec-3 .inner-card{
+    padding: 5px 0 10px 0;
+    position: relative;
+    width: 80%;
+    height: 80vh;
+    background-color: rgba(255, 255, 255, 0.223);
+    z-index: 2;
+    display:grid;
+    align-items: center;
+    transform: translateX(-100%);
+    opacity: 0;
+    transition: all 2s;
+    
+  }
+ .sec-3.show  .inner-card{
+    
+    transform: translateX(0);
+    opacity: 1;
+  }
+  
+  .sec-3 .inner-card .row{
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    flex-wrap: nowrap;
+    opacity: 0;
+    transform: translateY(50%);
+    transition: all 1s;
+    transition-delay:1s;
+    
+  }
+  .sec-3.show .inner-card .row{
+    transform: translateY(0);
+    opacity: 1;
+  }
+  .sec-3 .inner-card h1{
+    background-color: #31c3d9;
+    width: 30%;
+    text-align: center;
+    font-size: 45px;
+    border-bottom: 4px solid black;
+    font-weight: 800;
+  }
+  .sec-3 .inner-card .col img{
+    width:200px;
+    height: 180px;
+  }
+  .sec-3 .inner-card .col h3{
+    font-size: 25px;
+    font-weight:800;
 
   }
+  .sec-3 .inner-card .col p{
+    font-size: 20px;
+    font-weight: 400;
+    padding: 6px;
+    
+  }
+  .backimgsec{
+    width: 100%;
+    height: 110vh;
+    position: relative;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top center;
+    background-attachment: fixed; 
+}
+.backimgsec.p1{ background-image: url('景點/富士山河口湖.jpg');}
+.backimgsec.p2{ background-image: url('景點/貴船神社.jpg');}
+.backimgsec.p3{ background-image: url('景點/清水寺.jpg');}
+
+.sec-4 .sec-transpant{height: 105vh;}
+.sec-4{
+  height: 105vh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sec-4 .inner-card{
+  font-size: 18px;
+  color: white;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center
+  
+}
+.sec-4 .about-title{
+  font-size: 4em;
+  margin-bottom: 50px;
+  opacity: 0;
+  transform: translateY(-100%);
+  transition: all 1s;
+}
+.sec-4.show .about-title{
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.sec-4 .inner-card-content{
+  position: relative;
+  width: 1150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.sec-4 .inner-card-content .image{
+  position: relative;
+  width: 800px;
+  height: 400px;
+  overflow: hidden;
+  transform: translate(-100%,50%);
+  opacity: 0;
+  transition: all 1.5s;
+}
+.sec-4.show .inner-card-content .image{
+  transform: translate(0,0);
+  opacity: 1;
+}
+.sec-4 .inner-card-content .image img{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+.sec-4 .inner-card-content .text-box{
+  background: rgb(255, 255, 255,0.1);
+  backdrop-filter: blur(20px);
+  padding: 20px;
+  max-width: 300px;
+  min-height: 300px;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 10px;
+  
+  transform: translate(100%,50%);
+  opacity: 0;
+  transition: all 1.5s;
+}
+.sec-4.show .inner-card-content .text-box{
+  transform: translate(-80px,50px);
+  opacity: 1;
+}
+.sec-4 .inner-card-content .text-box h3{
+  font-size: 2em;
+  margin-bottom: 10px;
+  margin-top: 5px;
+}
+
+.sec-5 .inner-card .image{
+  transform: translate(100%,50%);
+}
+.media-info{
+  width: 400px;
+  margin-left: 50px;
+  transform: translateY(-5%);
+}
+.media-info li{
+  list-style: none;
+  font-size: 1.4em;
+  transform: translateX(-100%);
+  transition: all 1s;
+  opacity: 0;
+}
+.sec-5.show .media-info li{
+  transform: translateX(0);
+  opacity: 1;
+}
+.media-info li:nth-child(2){
+  transition-delay: 0.2s;
+}
+.media-info li:nth-child(3){
+  transition-delay: 0.4s;
+}
+.media-info li:nth-child(4){
+  transition-delay: 0.6s;
+}
+.media-info li:nth-child(5){
+  transition-delay: 0.8s;
+}
+.media-info li a{
+  color: white;
+  text-decoration: none;
+}
+.media-info li{
+  margin-top: 50px;
+}
+.media-info li:nth-child(1),.media-info li:nth-child(5){
+  padding-left: 100px;
+}
+.media-info li:nth-child(2),.media-info li:nth-child(4){
+  padding-left: 50px;
+}
+
+
+
 .beginpage{
     width: 100%;
     height: 100vh;

@@ -19,7 +19,8 @@
       let top = window.scrollY;
       let offset = sec.offsetTop;
       let height = sec.offsetHeight;
-      if (top >= offset && top < offset + height) {
+      let triggerOffset = 40;
+      if (top >= offset-triggerOffset && top < offset + height) {
         sec.classList.add('show');
       } else {
         sec.classList.remove('show');
@@ -29,7 +30,7 @@
   $('.logoback').click(function () {
     let sec2 = document.querySelector('.sec-2');
     window.scrollTo({
-      top: sec2.offsetTop,
+      top: sec2.offsetTop+10,
       behavior: 'smooth'
     });
   });
@@ -100,9 +101,7 @@
        <!--內容-->
       
        <section class="sec-1 show">
-       
         
-       
         <div class="beginpage">
           <div class="logo-card">
           <div class="bounce-text">
@@ -120,7 +119,6 @@
         </section>
         
         <section class="sec-2">
-          
           <div class="card" style="--c:0;
           --a:rgba(48, 63, 98, 0.24);
           --b:rgba(241, 192, 157, 0.29);
@@ -231,8 +229,72 @@
             </div>  
         </div>
         </section>
-        
+        <section class="sec-3">
+            <div  class="sec-transpant sec-3card" style="--secimg:rgba(255, 255, 255, 0.49)">
+            <div class="inner-card">
+              <h1>網頁特色</h1>
+              <div class="row">
+                <div class="col">
+                  <img src="素材/book_feature.png" alt="">
+                  <h3>教材提供</h3>
+                  <p>123456789<br>
+                  123456789<br>
+                12345679</p>
+                </div>
+                <div class="col">
+                  <img src="素材/story_feature.png" alt="">
+                  <h3>短篇閱讀</h3>
+                  <p>123456789<br>
+                    123456789<br>
+                  12345679</p>
+                </div>
+                <div class="col">
+                  <img src="素材/map_feature.png" alt="">
+                  <h3>日本地圖</h3>
+                  <p>123456789<br>
+                    123456789<br>
+                  12345679</p>
+                </div>
+              </div>
+            </div>
+            </div>
+            <div class="backimgsec p1"></div>
+        </section>
+        <section class="sec-4">
+          <div  class="sec-transpant" style="--secimg:#ae80ea89">
+          <div class="inner-card"><h2 class="about-title">關於網站</h2>
+          <div class="inner-card-content">
+            <div class="image"><img src="景點/貴船神社.jpg"></div>
+            <div class="text-box" >
+              <h3>123</h3>
+              <p>12346548798748465
+                121351465418496
+                46513213156454651616516515121311
+                6516516516516516516
+                5161651556546565561465
+                4498494512</p>
+            </div>
+          </div></div>
+        </div>
+          <div class="backimgsec p2"></div>
+      </section>
+  <section class="sec-5 sec-4">
+    <div class="sec-transpant" style="--secimg:rgba(112, 75, 27, 0.341)">
+      <div class="inner-card">
+        <h3 class="about-title">聯絡我們</h3>
+        <div class="inner-card-content">
+          <div class="media-info">
+            <li><a href="#"><i class="fa-brands fa-facebook-messenger"></i>Messenger</a></li>
+            <li><a href="#"><i class="fa-brands fa-instagram"></i>Instagram</a></li>
+            <li><a href="#"><i class="fa-brands fa-github"></i>Github</a></li>
+            <li><a href="#"><i class="fa-brands fa-line"></i>Line</a></li>
+            <li><a href="#"><i class="fa-regular fa-envelope"></i>Mail</a></li>
+          </div>
+          <div class="image"><img src="景點/清水寺.jpg" alt=""></div>
+        </div>
       </div>
-    
+    </div>
+    <div class="backimgsec p3"></div>
+  </section>
     </body>
 </html>
