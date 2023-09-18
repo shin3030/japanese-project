@@ -160,7 +160,7 @@ section{
 .sec-4{
   height: 100vh;
   position: relative;
-  display: flex;
+  display: grid;
   justify-content: center;
   align-items: center;
 }
