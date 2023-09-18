@@ -156,11 +156,11 @@ section{
 .backimgsec.p2{ background-image: url('景點/貴船神社.jpg');}
 .backimgsec.p3{ background-image: url('景點/清水寺.jpg');}
 
-.sec-4 .sec-transpant{height: 105vh;}
+
 .sec-4{
   height: 100vh;
   position: relative;
-  display: grid;
+  display: flex;
   justify-content: center;
   align-items: center;
 }
