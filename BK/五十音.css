@@ -52,9 +52,11 @@
       font-weight: 800;
       -webkit-text-decoration-skip: space;
               text-decoration-skip: space;
-      border-bottom: 4px solid #4369c8;
+      border-bottom: 4px solid rgb(17, 2, 185);
       width: 100%;
       font-size: 60px;
+      
+
   }
   .section-title .card{
     font-size: 25px;

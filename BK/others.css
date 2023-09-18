@@ -21,12 +21,12 @@
   color: rgb(201, 179, 153);}
 
   .legend {
-    width: 200px;
+    width: 150px;
     padding: 6px 8px;
     font: 14px/16px Arial, Helvetica, sans-serif;
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
     border-radius: 5px;
-    background-color: rgba(110, 61, 163, 0.705);
+    background-color:  rgba(124, 122, 125, 0.705);
     line-height: 20px;
 }
     
@@ -34,13 +34,14 @@
     margin: 0 0 5px;
     color: #cacaca;
     font-weight: 700;
+    font-size: 18px;
 }
 .legend span{
     
     margin: 30px 0 30px 0;
-    font-size: 18px;
+    font-size: 13px;
     font-weight: 600;
-    color: rgb(201, 179, 153);
+    color: rgb(247, 207, 160);
 }
   /* ///////////////////////////////////////////////////// */
  .section{
@@ -107,7 +108,7 @@
 .section-title h1{
  text-align: center;
  
-  color: rgb(106, 3, 129);
+ color: rgb(132, 14, 158);
     font-weight: 800;
     text-decoration-skip: space;
     border-bottom: 4px solid #b973d2;
@@ -192,6 +193,7 @@
       background: rgb(6,14,131);
       background: linear-gradient(0deg, rgb(127, 15, 131) 0%, rgb(90, 7, 138) 100%);
       border: none;
+      font-weight: 600;
     }
     .btn-story:hover {
        background: rgb(0,3,255);
