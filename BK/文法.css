@@ -37,9 +37,9 @@
         min-height: 100vh;
         background-color: rgb(103,12,60);
         width: 100%;
-        padding: 100px 25% 100px 25%;
-        
-       
+        display: none;
+        justify-content: center;
+        align-items: center; 
     }
     .passline{
         width: 100%;
@@ -51,6 +51,7 @@
   
     text-align: left;
     border:5px grey solid;
+    margin: 10% 0 10% 0;
     padding:40px;
     background-color: rgb(248, 237, 235);
     width: 800px;
@@ -127,9 +128,7 @@ flex-direction: row;
   width: 700px;
 }
 
-.course{
-  display: none;
-}
+
 /* ////////////// */
 .btn-course {
   background-color: #89d8d3;
