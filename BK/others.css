@@ -114,6 +114,7 @@
     width: 100%;
     font-size: 60px;
 }
+
 .section-title .card{
   font-size: 20px;
   font-weight: 700;
@@ -148,8 +149,8 @@
      align-items: center;
      justify-content: center;
      margin-top: 0;
-    
     }
+    
     .section-title .card-story .btn-story{
         text-align: center;
     }
@@ -263,3 +264,31 @@ padding: 3px;
 color: #b973d2;
 }
 /* //////////////////////////////////////////////////////// */
+
+/* ////////////////////////////////Read Aloud/////////////////////////////// */
+.section-title .card-story.read{
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+}
+.section-title .card-story.read li{
+    list-style: none;
+}
+.section-title .card-story.read a{
+    text-decoration: none;
+
+}
+.section-title h1.read{
+    font-size: 55px;
+}
+.section-story.read{
+    display: block;
+    height: auto;
+}
+.section-story.read h3{
+    font-size: 30px;
+}
+
+.readimg img{
+    width: 700px;
+}
