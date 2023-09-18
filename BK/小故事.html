@@ -56,7 +56,7 @@
            
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" style="--h:rgb(73, 49, 98)" href="#" id="navbarDropdownMenuLink" data-bs-toggle="dropdown" role="button"  aria-expanded="false">
-                其他
+                其他工具
               </a>
               <ul class="dropdown-menu" style="--hm:rgb(68, 34, 123)" aria-labelledby="navbarDropdownMenuLink">
                 <li><a class="dropdown-item" style="--hh:rgb(102, 51, 183)" href="map.html">地圖</a></li>
@@ -460,8 +460,10 @@
   const toggle = document.getElementById('toggle');
 const c1cards = document.querySelectorAll('.c1');
 const c2cards = document.querySelectorAll('.c2');
+
 toggle.addEventListener('change', function () {
     if (toggle.checked) {
+
         c1cards.forEach(card => {
                 card.style.display = 'none';
             });

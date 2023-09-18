@@ -132,13 +132,13 @@ section{
     height: 180px;
   }
   .sec-3 .inner-card .col h3{
-    font-size: 25px;
-    font-weight:800;
+    font-size: 28px;
+    font-weight:900;
 
   }
   .sec-3 .inner-card .col p{
     font-size: 20px;
-    font-weight: 400;
+    font-weight: 800;
     padding: 6px;
     
   }
@@ -220,14 +220,29 @@ section{
   background: rgb(255, 255, 255,0.1);
   backdrop-filter: blur(20px);
   padding: 20px;
-  max-width: 300px;
+  max-width: 350px;
   min-height: 300px;
+  max-height: 300px;
+  color: rgba(254, 236, 200, 0.759);
   border: 1px solid rgba(255,255,255,0.1);
   border-radius: 10px;
-  
   transform: translate(100%,50%);
   opacity: 0;
   transition: all 1.5s;
+  
+
+}
+.sec-4 .inner-card-content .text-box .text-box-content{
+  max-height: 250px;
+  overflow-y: scroll;
+}
+.sec-4 .inner-card-content .text-box .text-box-content::-webkit-scrollbar {
+  width:0;
+}
+.sec-4 .inner-card-content .text-box p{
+  line-height: 1.5;
+  font-weight: 600;
+  font-size: 20px;
 }
 .sec-4.show .inner-card-content .text-box{
   transform: translate(-80px,50px);

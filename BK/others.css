@@ -108,10 +108,10 @@
 .section-title h1{
  text-align: center;
  
- color: rgb(132, 14, 158);
+ color: rgb(128, 26, 151);
     font-weight: 800;
     text-decoration-skip: space;
-    border-bottom: 4px solid #b973d2;
+    border-bottom: 4px solid rgb(128, 26, 151);
     width: 100%;
     font-size: 60px;
 }
@@ -121,7 +121,7 @@
   font-weight: 700;
   border-radius: 10px;
   margin-top: 20px;
-  background-color: #b973d272;
+  background-color: #9f50b396;
   color: #b973d2;
   justify-content:center;
   align-items: start;
@@ -194,20 +194,21 @@
       background: linear-gradient(0deg, rgb(127, 15, 131) 0%, rgb(90, 7, 138) 100%);
       border: none;
       font-weight: 600;
+      color: #d4dd5a;
     }
     .btn-story:hover {
        background: rgb(0,3,255);
-    background: linear-gradient(0deg, rgb(158, 22, 185) 0%, rgb(65, 15, 174) 100%);
+    background: linear-gradient(0deg, rgb(176, 29, 206) 0%, rgb(85, 28,206) 100%);
     }
     .btn-story.loud{
         margin-right: 30px;
       background: rgb(75, 87, 255);
-      background: linear-gradient(0deg, rgb(237, 79, 243) 0%, rgb(179, 75, 239) 100%);
+      background: linear-gradient(0deg, rgb(159, 24, 163) 0%, rgb(95, 13, 143) 100%);
       border: none;
     }
     .btn-story.loud:hover {
         background: rgb(0, 123, 255);
-     background: linear-gradient(0deg, rgb(197, 99, 216) 0%, rgb(146, 108, 227) 100%);
+     background: linear-gradient(0deg, rgb(150, 63, 165) 0%, rgb(79, 51, 139) 100%);
      }
 /*////////////// toggle switch/////////////////// */
 .switch_container{
@@ -220,7 +221,7 @@
 position: relative;
 display: inline-block;
 width: 60px;
-height: 26px;
+height: 28px;
 line-height: 2em;
 }
 
@@ -235,9 +236,10 @@ top: 0;
 left: 0;
 right: 0;
 bottom: 0;
-background-color: #d57d7d;
-transition: .4s;
+background: transparent;
+transition:.5s;
 border-radius: 34px;
+border: 1px solid rgb(164, 164, 164);
 }
 
 .slider:before {
@@ -246,25 +248,31 @@ content: "";
 height: 26px;
 width: 26px;
 left: 1px;
-background-color: white;
-transition: .4s;
+background-color: transparent;
+transition:all .3s;
 border-radius: 50%;
+border: 2px solid white;
 }
 
 
 input:checked + .slider {
-background-color: #2196F3;
+background-color:rgb(88, 88, 88);
+
 }
 
 input:checked + .slider:before {
 transform: translateX(32px);
+background-color: #f6f189;
 
 }
 #status{
-font-size: 1.2em;
+font-size: 1.3em;
 padding: 3px;
-color: #b973d2;
+color: #b1b1b1;
+font-weight: 600;
 }
+
+
 /* //////////////////////////////////////////////////////// */
 
 /* ////////////////////////////////Read Aloud/////////////////////////////// */
@@ -275,10 +283,14 @@ color: #b973d2;
 }
 .section-title .card-story.read li{
     list-style: none;
+    
 }
 .section-title .card-story.read a{
-    text-decoration: none;
+    color: #97b4d4;
 
+}
+.section-title .card-story.read a:hover{
+color: #34a0a4;
 }
 .section-title h1.read{
     font-size: 55px;
@@ -294,3 +306,4 @@ color: #b973d2;
 .readimg img{
     width: 700px;
 }
+
