@@ -178,6 +178,7 @@
         padding:40px;
         color: rgb(146, 144, 144);
         background-color: rgb(21,25,42);
+        z-index: 2;
     }
     .story h3{
         font-weight:bold;
