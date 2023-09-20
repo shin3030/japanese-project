@@ -83,7 +83,7 @@
         <img src="素材/mount.png" id="mount">
         <img src='素材/ground.png' id="ground">
     </div>
-    <div class="yuko hideimg"></div>
+    
     <div class="section-title">
       <div data-aos="zoom-in" data-aos-duration="800" data-aos-easing="ease-in-out" class="content">
       <h1 class="title">N5日文單字</h1>
@@ -104,7 +104,7 @@
       </div><a class="download" href="https://drive.google.com/drive/folders/1yW9FZzcz-sutpgN9mChQf59fT1TGzeFo?usp=drive_link" target="_blank">教材下載</a></div>
     </div>
     <div class="passline"></div>
-
+    <div class="yuko hideimg"></div>
       <div class="section-voc voc1">
       <div class="imgstyle"  >
         <hr>
@@ -438,7 +438,7 @@
   });
   const selectedCourse = document.querySelector(`.voc${courseNumber}`);
   if (selectedCourse) {
-      selectedCourse.style.display = 'grid';
+      selectedCourse.style.display = 'flex';
       window.scrollTo({
                 top: selectedCourse.offsetTop-400,
                 behavior: 'smooth'

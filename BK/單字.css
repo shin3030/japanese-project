@@ -129,6 +129,8 @@ flex-direction: row;
         display: none;
         justify-content: center;
         align-items: center;
+        flex-direction: column;
+       
         
 }
 
@@ -136,7 +138,9 @@ flex-direction: row;
   
   margin-top: 10px;
   padding: 50px;
-    width: 800px;
+  max-width: 70%;
+  min-width: 700px;
+  width: 800px;
     text-align: center;
     border:5px grey solid;
     padding:40px;
@@ -145,10 +149,10 @@ flex-direction: row;
 
 }
 .imgstyle img {
-    width: 700px;
     border: #000 4px;
     max-width: 100%;
-    max-height: 100%;
+  
+    min-width: 500px;
   }
 
   .passline{

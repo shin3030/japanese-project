@@ -7,9 +7,21 @@ body{
 .download{
   color: #2f98f5;
 }
+@media screen and (max-width: 1400px){
+  .yuko{
+    display: none;
+  }
+  .card .card-content h2{
+    font-size: 40px;
+  }
+  .card .card-content .begin-story{
+    font-size: 32px;
+  }
+
+}
 /* ////////頂部按鈕///////// */
 .back-top {
-    z-index: 3;
+
     position: fixed;
     bottom: 1%;
     right: 1%;
@@ -95,14 +107,15 @@ font-weight: bold;
 /* ////////// */
 .yuko {
   position: fixed;
-  bottom: 100px;
-  left: -25px;
-  height: 400px;
-  width: 400px;
+  bottom: 10%;
+  left: 2%;
+  width: 350px;
+  height: 350px;
   background:  center/95% url("素材/yuko.png") no-repeat ;
   z-index: 1;
   opacity: 1;
   transition: all 0.2s linear;
+  
 }
 .yuko:hover {
   background: center/95% url("素材/yuko_2.png") no-repeat;

@@ -571,6 +571,9 @@ hr{
   text-shadow: 5px 5px 5px rgb(72, 72, 72);
 
 }
+.card .card-content .begin-story{
+  font-size: 40px;
+}
 
 .card:hover .card-content hr{opacity: 1;}
 .card:hover .card-content a{opacity: 1;}
