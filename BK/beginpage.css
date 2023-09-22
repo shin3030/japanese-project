@@ -54,12 +54,11 @@ section{
 }
 
 .sec-2{
-    position: relative;
-      background:rgba(255, 255, 255, 0.312);
-      -webkit-backdrop-filter: blur(10px);
-              backdrop-filter: blur(10px);
-      z-index:1;
-      display: flex;
+    position: relative;  
+  }
+  .menu-card{
+    height: 100vh;
+    display: flex;
     flex-wrap: nowrap;
       justify-content:space-around;
       align-items: center;
@@ -150,6 +149,7 @@ section{
     background-position: top center;
     background-attachment: fixed; 
 }
+.backimgsec.p0{ background-image: url('景點/姬路城.jpg');}
 .backimgsec.p1{ background-image: url('景點/富士山河口湖.jpg');}
 .backimgsec.p2{ background-image: url('景點/貴船神社.jpg');}
 .backimgsec.p3{ background-image: url('景點/清水寺.jpg');}
