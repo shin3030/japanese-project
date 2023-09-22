@@ -38,8 +38,8 @@ var markers = [];
                     }
                     openPopupMarker = this;
 
-                    var popupContent = "<h3 style='font-weight:bold'>" + location.name + "</h3>" +
-                                    (location.option?"<p style='font-size:18px;font-weight:bold;'>"+location.option+"</p>":'')
+                    var popupContent = "<h3 style='font-weight:bold'>" + location.name + "</h3><h5>"+location.jp_name+"</h5>" +
+                                    (location.option?"<p style='font-size:16px;font-weight:bold'>"+location.option+"</p><a href="+location.url+" target=_blank>文章來源<a>":'')
                                     +"<img src='" + location.photo + "' alt='" + location.name + "' style='width:300px; height: 150px;'>"
                                   ;
 
@@ -57,7 +57,7 @@ var markers = [];
         var currentZoom = map.getZoom();
 
     
-        if (currentZoom > 8) {
+        if (currentZoom > 10) {
            
             for (var i = 0; i < markers.length; i++) {
                 markers[i].addTo(map);
@@ -143,7 +143,14 @@ function onEachFeature(feature, layer) {
     layer.on({
         mouseover:highlightFeature,
         mouseout:resetHighlight,
-        click:zoomToFeature
+        click:function (e) {
+            var currentZoom = map.getZoom();
+
+            if (currentZoom < 10) {
+                zoomToFeature(e);
+            }}
+        
+        
     });
 }
 
