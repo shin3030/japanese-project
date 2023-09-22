@@ -290,6 +290,21 @@ section{
 .media-info li{
   margin-top: 50px;
 }
+.media-info li a:hover{
+ color: #0c85d5;
+}
+.media-info li:nth-child(2) a:hover{
+  color: #d901b1;
+ }
+ .media-info li:nth-child(3) a:hover{
+  color: #474747;
+ }
+ .media-info li:nth-child(4) a:hover{
+  color: #48d407;
+ }
+ .media-info li:nth-child(5) a:hover{
+  color: #8b0232;
+ }
 .media-info li:nth-child(1),.media-info li:nth-child(5){
   padding-left: 100px;
 }
