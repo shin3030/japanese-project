@@ -8,6 +8,8 @@
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='chat.css')}}"/>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+
 	</head>
 	
 	
@@ -23,18 +25,22 @@
 									<span class="online_icon"></span>
 								</div>
 								<div class="user_info">
-									<span>ChatBot</span>
+									<span>YUKO</span>
 									<p>何でも聞いてください！</p>
 								</div>
 							</div>
 						</div>
 						<div id="messageFormeight" class="card-body msg_card_body">
-							
+							{%for message in messages%}
+							<div class="d-flex justify-content-end mb-4"><div class="msg_cotainer_send">{{message.User_Content}}<span class="msg_time_send">{{message.Message_Date_Time.strftime("%H:%M")}}
+								</span></div><div class="img_cont_msg"><img src="https://i.ibb.co/d5b84Xw/Untitled-design.png" class="rounded-circle user_img_msg"></div></div>
+								<div class="d-flex justify-content-start mb-4"><div class="img_cont_msg"><img src="/static/images/otherfactor/yuko_title.png" class="rounded-circle user_img_msg"></div><div class="msg_cotainer">{{message.Bot_Response}}<span class="msg_time">{{message.Message_Date_Time.strftime("%H:%M")}}</span></div></div>
+							{%endfor%}
 							
 						</div>
 						<div class="card-footer">
-							<form id="messageArea" class="input-group">
-                                <input type="text" id="text" name="msg" placeholder="Type your message..." autocomplete="off" class="form-control type_msg" required/>
+							<form id="messageArea" class="input-group" action="{{url_for('get')}}" method="post">
+                                <input type="msg" id="msg" name="msg" placeholder="Type your message..." autocomplete="off" class="form-control type_msg" required/>
 								<div class="input-group-append">
 									<button type="submit" id="send" class="input-group-text send_btn"><i class="fas fa-location-arrow"></i></button>
 								</div>
@@ -44,21 +50,29 @@
 				</div>
 			</div>
         </div>
-        <script>
+        <script type="text/javascript" charset="utf-8">
             $(document).ready(function(){
-                $("#messageArea").submit(function(event){
-                    const date=new Date();
-                    const hour=date.getHours();
-                    const minute=date.getMinutes();
-                    const time=hour+":"+minute;
-                    var rawtext=$("#text").val();
+				var socket=io.connect('http://'+document.domain+":"+location.port);
+				console.log(socket);
+				const date=new Date();
+                const hour=date.getHours();
+                const minute=date.getMinutes().toString().padStart(2, '0');;
+                const time=hour+":"+minute;
+				function scrollToBottom() {
+            $("#messageFormeight").scrollTop($("#messageFormeight")[0].scrollHeight);};
 
+				scrollToBottom();
+
+                $("#messageArea").submit(function(event){
+                    
+                    var rawtext=$("#msg").val();
+					
                     var userHtml = '<div class="d-flex justify-content-end mb-4"><div class="msg_cotainer_send">' + rawtext + '<span class="msg_time_send">'+ time + 
     '</span></div><div class="img_cont_msg"><img src="https://i.ibb.co/d5b84Xw/Untitled-design.png" class="rounded-circle user_img_msg"></div></div>';
                     
-                    $("#text").val("");
+                    $("#msg").val("");
                     $("#messageFormeight").append(userHtml);
-                  
+					scrollToBottom();
                     $.ajax({
                         data: {
                         msg: rawtext,
@@ -68,17 +82,42 @@
                         success: function(data) {
                             var botHtml = '<div class="d-flex justify-content-start mb-4"><div class="img_cont_msg"><img src="/static/images/otherfactor/yuko_title.png" class="rounded-circle user_img_msg"></div><div class="msg_cotainer">' + data + '<span class="msg_time">' + time + '</span></div></div>';
                             $("#messageFormeight").append($.parseHTML(botHtml));
-                            console.log('Server response:', data);
-                            },
-                        
+							// $.ajax({
+            				// data: {
+                			// msg: data,
+            				// 	},
+           					// type: "POST",
+            				// url: "/translate",
+            				// success: function(translation) {
+							// 	var botHtml2 = '<div class="d-flex justify-content-start mb-4"><div class="img_cont_msg"><img src="/static/images/otherfactor/yuko_title.png" class="rounded-circle user_img_msg"></div><div class="msg_cotainer">' + translation + '<span class="msg_time">' + time + '</span></div></div>';
+                            // $("#messageFormeight").append($.parseHTML(botHtml2));
+            				// 	},
+            				// 	error: function(error) {
+                			// 		console.log(error);
+            				// 			}
+        					// 		});
+                            scrollToBottom();},
                         });
-						$("#messageFormeight").scrollTop($("#messageFormeight")[0].scrollHeight);
                     event.preventDefault();
                 });
                 
-
+				socket.on('send_prompt', (data)=> {
+            var prompt = data.prompt;
+			console.log(socket);
+            var botHtml ='<div class="d-flex justify-content-end mb-4"><div class="msg_cotainer_send">' + prompt + '<span class="msg_time_send">'+ time + 
+    '</span></div><div class="img_cont_msg"><img src="https://i.ibb.co/d5b84Xw/Untitled-design.png" class="rounded-circle user_img_msg"></div></div>';
+			$("#messageFormeight").append($.parseHTML(botHtml));
+            scrollToBottom();
+        });socket.on('send_Expample',(data)=>{
+			var Example=data.Example
+			var botHtml = '<div class="d-flex justify-content-start mb-4"><div class="img_cont_msg"><img src="/static/images/otherfactor/yuko_title.png" class="rounded-circle user_img_msg"></div><div class="msg_cotainer">' + Example + '<span class="msg_time">' + time + '</span></div></div>';
+             $("#messageFormeight").append($.parseHTML(botHtml));
+			 scrollToBottom();
+		});
             })
             
         </script>
+		
+
     </body>
 </html>
