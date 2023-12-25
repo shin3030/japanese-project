@@ -41,7 +41,7 @@ $(document).ready(function () {
       } else {
         $(".yuko").addClass("hideimg");
       }
-      console.log(value);
+      // console.log(value);
     });
   
 

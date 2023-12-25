@@ -125,8 +125,8 @@ flex-direction: row;
         min-height: 100vh;
         background-color: rgb(127, 229, 247);
         width: 100%;
-        padding: 10% 0 10% 0;
         display: none;
+        padding: 10% 0 10% 0;
         justify-content: center;
         align-items: center;
         flex-direction: column;
@@ -138,9 +138,7 @@ flex-direction: row;
   
   margin-top: 10px;
   padding: 50px;
-  max-width: 70%;
-  min-width: 700px;
-  width: 800px;
+  width: 850px;
     text-align: center;
     border:5px grey solid;
     padding:40px;
@@ -148,13 +146,15 @@ flex-direction: row;
     display:block;
 
 }
-.imgstyle img {
+.imgstyle table {
     border: #000 4px;
     max-width: 100%;
-  
     min-width: 500px;
+    z-index: 999;
   }
-
+.imgstyle table th{
+  width: 150px;
+}
   .passline{
         width: 100%;
         height: 5px;

@@ -188,9 +188,9 @@ font-weight: bold;
   justify-content:end;
   align-items: end;
   padding: 5px;
-  right: 2%;
+  right: 1%;
   bottom: 0;
-  padding-bottom: 15px;
+  
 }
 
 .back-top {
@@ -267,9 +267,10 @@ font-weight: bold;
             border: none;
             clip-path: circle(4% at 91% 94%);
             transition: .5s ease-in-out;
-            opacity: 0;
+            display: none;
         }
         .chat-iframe.showchat{
+            display: block;
             clip-path:circle(100%);
             opacity: 1;
         }
