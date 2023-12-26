@@ -79,9 +79,17 @@ def logout():
 @app.route("/get",methods=["GET","POST"])
 def get():
     msg=request.form["msg"]
+    getchatmsg(msg)
     # print("Received message:", msg)
-    return chat_respone(msg)
-
+    response=chat_respone(msg)
+    getchatresponse(response)
+    return ""
+def getchatmsg(msg):
+    socketio.emit('send_prompt', {'prompt': msg})
+    return ""
+def getchatresponse(response):
+    socketio.emit('send_Expample', {'Example': response})
+    return""
 def chat_completion(prompt, model_engine="gpt35", temperature=0.7, top_p=0.95, max_tokens=1024):
     args = {
         'prompt': prompt,
@@ -113,7 +121,6 @@ def chat_translate_respone(text):
     prompt="把"+text+"翻譯成繁體中文"
     response=chat_completion(prompt)
     return response
-
 def Chat_history(content,senttime,response):
     User_ID=session['User_id']
     zh_response=chat_translate_respone(response)
@@ -121,24 +128,27 @@ def Chat_history(content,senttime,response):
     cursor.execute('INSERT INTO chat_history VALUES (% s, % s, % s, % s,% s)', (User_ID,senttime, content,response,zh_response ))
     mysql.connection.commit()
     return 0
-
 def get_message():
     User_ID=int(session['User_id'])
     cursor=mysql.connection.cursor(MySQLdb.cursors.DictCursor)
     cursor.execute('SELECT * FROM chat_history WHERE User_id = % s', (User_ID, ))
     messages=cursor.fetchall()
     return messages
-
-
-
+#單字例句
 @app.route("/selectvoc",methods=["POST"])
 def selectvoc():
     JapaneseVoc=request.form.get('voc')#選取的單字
     prompt="請給我'"+JapaneseVoc+"'的例句"#傳入機器人的提示詞
+    getchatmsg(prompt)
     print(prompt)
-    socketio.emit('send_prompt', {'prompt': prompt})
     Ex_response=chat_respone(prompt)
-    socketio.emit('send_Expample', {'Example': Ex_response})
+    getchatresponse(Ex_response)
+    return ""
+#文法例句
+@app.route("/getGrammer",methods=["POST"])
+def getGrammer():
+    search_index=request.form.get("search_index")
+    print(search_index)
     return ""
 
 
