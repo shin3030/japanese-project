@@ -56,6 +56,8 @@ $(document).ready(function () {
     $(".chat-floating-button").click(function(){
       $(".chat-floating-button").toggleClass("active");
       $('.chat-iframe').toggleClass("showchat");
+      var chatIframe = $('.chat-iframe')[0].contentWindow.document;
+        chatIframe.getElementById('messageFormeight').scrollTop = chatIframe.getElementById('messageFormeight').scrollHeight;
   })
     AOS.init();
 
