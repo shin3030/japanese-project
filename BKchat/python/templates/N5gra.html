@@ -99,11 +99,13 @@
     <div class="passline"></div>
     <div class="yuko hideimg"></div>
     <div class="section course course1">
-    
-        <div class="style2" class="col-md-12 py-5 text-black">
+        <div class="style2 col-md-6 py-5 text-black">
           <h2>第一課</h2>
-                <br>
-                <h5>A は B です (A是B)</h5>
+          <hr>
+            <div class="row">
+                <h5 class="col-md-10">A は B です (A是B)</h5>
+                <a class="col-md-2 btn btn-outline-secondary" onclick="getSearchIndex(1)">例句生成</a>
+            </div>
                 <p>は：助詞，讀音為 wa</p>
                 <p>です：表肯定</p>
                 <h5>A は B ではありません (A不是B)</h5>
@@ -112,7 +114,10 @@
                 <p>では＝じゃ</p>
                 <p>ありません＝ない</p>
                 <hr>
-                <h5>A は B ですか？ (A是B嗎?)</h5>
+                <div class="row">
+                    <h5 class="col-md-10">A は B ですか？ (A是B嗎?)</h5>
+                    <a class="col-md-2 btn btn-outline-secondary" onclick="">例句生成</a>
+                </div>
                 <p>か：疑問助詞</p>
                 <li>Yes --> はい、A は B です</li>
                 <li>No --> いいえ、A は B ではありません</li>
@@ -148,8 +153,11 @@
             </table>
             <br>
             <hr>
-            
-            <h5>指示詞</h5>
+
+            <div class="row">
+                <h5 class="col-md-10">指示詞</h5>
+                <a class="col-md-2 btn btn-outline-secondary" onclick="">例句生成</a>
+            </div>
             <p>在此假設自己為說話者，另一個人為聽話者，在有點距離的情況下。</p>
             
             <table border="1" class="table-bordered" bordercolor="black">
@@ -212,11 +220,18 @@
                 <li>離自己&對方都遠的場所：問：あそこ　→　答：あそこ</li>
             
             <hr>
-                <p>助詞の</p>
+            <div class="row">
+                <h5 class="col-md-10">助詞の</h5>
+                <a class="col-md-2 btn btn-outline-secondary" onclick="">例句生成</a>
+            </div>
                 <h5>N1 の N2 (某人的東西)</h5>
                 <p>N1為人，N2 為事物</p>
             <hr>
-                <p>助詞も</p>
+
+            <div class="row">
+                <h5 class="col-md-10">助詞も</h5>
+                <a class="col-md-2 btn btn-outline-secondary" onclick="">例句生成</a>
+            </div>
                 <h5>N1 も N2 です(某人也是...)</h5>
                 <p>表示並例，中文"也"的意思。</p>
             
@@ -1286,6 +1301,7 @@
     
 </body>
 <script>
+    
     function showCourse(courseNumber) {
     const courseCards = document.querySelectorAll('.section');
     courseCards.forEach(card => {
@@ -1296,12 +1312,15 @@
         selectedCourse.style.display = 'grid';
         window.scrollTo({
                   top: selectedCourse.offsetTop-400,
-                  behavior: 'smooth'
-              });
-            
-    }
-
-}
+                  behavior: 'smooth'});}};
+    function getSearchIndex(index){
+        $.ajax({
+            type:"POST",
+            url:"/getGrammer",
+            data:{search_index:index},
+            success:function(response){}
+        })
+    };
 </script>
 <script type = "text/javascript" src = "{{ url_for('static', filename = 'common.js') }}" ></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>

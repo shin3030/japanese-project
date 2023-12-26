@@ -107,8 +107,6 @@
        
     </div>    
 
-  
-
      <div class="ChatBox">
       <iframe class="chat-iframe" src="/chatbot"></iframe>
       <div class="chat-container hide">
@@ -121,12 +119,6 @@
   $(document).ready(function(){
       var socket=io.connect('http://'+document.domain+":"+location.port);
       console.log(socket);
-
-      $('.chat-floating-button').click(function() {
-        var chatIframe = $('.chat-iframe')[0].contentWindow.document;
-        chatIframe.getElementById('messageFormeight').scrollTop = chatIframe.getElementById('messageFormeight').scrollHeight;
-        
-    });
     });
   function showCourse(page) {
   const selectedCourse = document.querySelector(`.section-voc`);

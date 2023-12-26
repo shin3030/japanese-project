@@ -38,7 +38,11 @@
 							{%endfor%}
 							
 						</div>
-						<div class="card-footer">
+						<div class="row px-5 py-1" style="width: 80%;">
+						<a id="Translate" class="btn btn-outline-secondary text-light d-flex justify-content-center align-middle h-2 fs-6" style="border-radius:45%;width:50px;">翻譯</a>
+						<a id="" class="btn btn-outline-secondary text-light mx-2 d-flex justify-content-center align-middle h-2 fs-6" style="border-radius:45%;width:50px;">解析</a>
+					</div>
+						<div class="card-footer pt-0">
 							<form id="messageArea" class="input-group" action="{{url_for('get')}}" method="post">
                                 <input type="msg" id="msg" name="msg" placeholder="Type your message..." autocomplete="off" class="form-control type_msg" required/>
 								<div class="input-group-append">
@@ -59,47 +63,25 @@
                 const minute=date.getMinutes().toString().padStart(2, '0');;
                 const time=hour+":"+minute;
 				function scrollToBottom() {
-            $("#messageFormeight").scrollTop($("#messageFormeight")[0].scrollHeight);};
-
+					var scrollValue=$("#messageFormeight")[0].scrollHeight
+            $("#messageFormeight").scrollTop(scrollValue);};
+			
 				scrollToBottom();
-
+				
                 $("#messageArea").submit(function(event){
-                    
                     var rawtext=$("#msg").val();
-					
-                    var userHtml = '<div class="d-flex justify-content-end mb-4"><div class="msg_cotainer_send">' + rawtext + '<span class="msg_time_send">'+ time + 
-    '</span></div><div class="img_cont_msg"><img src="https://i.ibb.co/d5b84Xw/Untitled-design.png" class="rounded-circle user_img_msg"></div></div>';
-                    
+    //                 var userHtml = '<div class="d-flex justify-content-end mb-4"><div class="msg_cotainer_send">' + rawtext + '<span class="msg_time_send">'+ time + 
+    // '</span></div><div class="img_cont_msg"><img src="https://i.ibb.co/d5b84Xw/Untitled-design.png" class="rounded-circle user_img_msg"></div></div>';
                     $("#msg").val("");
-                    $("#messageFormeight").append(userHtml);
-					scrollToBottom();
+                    // $("#messageFormeight").append(userHtml);
                     $.ajax({
                         data: {
                         msg: rawtext,
                         },
                         type: "POST",
                         url: "/get",
-                        success: function(data) {
-                            var botHtml = '<div class="d-flex justify-content-start mb-4"><div class="img_cont_msg"><img src="/static/images/otherfactor/yuko_title.png" class="rounded-circle user_img_msg"></div><div class="msg_cotainer">' + data + '<span class="msg_time">' + time + '</span></div></div>';
-                            $("#messageFormeight").append($.parseHTML(botHtml));
-							// $.ajax({
-            				// data: {
-                			// msg: data,
-            				// 	},
-           					// type: "POST",
-            				// url: "/translate",
-            				// success: function(translation) {
-							// 	var botHtml2 = '<div class="d-flex justify-content-start mb-4"><div class="img_cont_msg"><img src="/static/images/otherfactor/yuko_title.png" class="rounded-circle user_img_msg"></div><div class="msg_cotainer">' + translation + '<span class="msg_time">' + time + '</span></div></div>';
-                            // $("#messageFormeight").append($.parseHTML(botHtml2));
-            				// 	},
-            				// 	error: function(error) {
-                			// 		console.log(error);
-            				// 			}
-        					// 		});
-                            scrollToBottom();},
-                        });
-                    event.preventDefault();
-                });
+                        success: function(data) {},});
+                    event.preventDefault();	});
                 
 				socket.on('send_prompt', (data)=> {
             var prompt = data.prompt;
@@ -108,11 +90,14 @@
     '</span></div><div class="img_cont_msg"><img src="https://i.ibb.co/d5b84Xw/Untitled-design.png" class="rounded-circle user_img_msg"></div></div>';
 			$("#messageFormeight").append($.parseHTML(botHtml));
             scrollToBottom();
-        });socket.on('send_Expample',(data)=>{
+        });
+		socket.on('send_Expample',(data)=>{
 			var Example=data.Example
 			var botHtml = '<div class="d-flex justify-content-start mb-4"><div class="img_cont_msg"><img src="/static/images/otherfactor/yuko_title.png" class="rounded-circle user_img_msg"></div><div class="msg_cotainer">' + Example + '<span class="msg_time">' + time + '</span></div></div>';
              $("#messageFormeight").append($.parseHTML(botHtml));
 			 scrollToBottom();
+			 
+			 
 		});
             })
             
