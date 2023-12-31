@@ -65,8 +65,7 @@ def register():
     elif request.method == 'POST':
         mesage = 'Please fill out the form !'
     return render_template('register.html', mesage = mesage)
-
-# 登出
+# 登出(未製作)
 @app.route('/logout')
 def logout():
     session.pop('loggedin', None)
@@ -80,17 +79,15 @@ def logout():
 def get():
     msg=request.form["msg"]
     getchatmsg(msg)
-    # print("Received message:", msg)
-    response=chat_respone(msg)
-    getchatresponse(response)
+    chat_respone(msg,0)
     return ""
-def getchatmsg(msg):
+def getchatmsg(msg):#使用者訊息回傳至聊天室
     socketio.emit('send_prompt', {'prompt': msg})
     return ""
-def getchatresponse(response):
-    socketio.emit('send_Expample', {'Example': response})
-    return""
-def chat_completion(prompt, model_engine="gpt35", temperature=0.7, top_p=0.95, max_tokens=1024):
+def getchatresponse(response,zh_response):#機器人訊息回傳至聊天室
+    socketio.emit('send_Expample', {'Example': response,'Zh_Example':zh_response})
+    return ""
+def chat_completion(prompt, model_engine="gpt35", temperature=0.9, top_p=0.95, max_tokens=1024):
     args = {
         'prompt': prompt,
         'model_engine': model_engine,
@@ -102,28 +99,46 @@ def chat_completion(prompt, model_engine="gpt35", temperature=0.7, top_p=0.95, m
     response_json = response.json()
     message = response_json['message']
     return message
-
-def chat_respone(text):
+def get_prompt(prompt_type, content=""):
+    if prompt_type == 1:
+        return f"請產生包含「{content}」的單字。"
+    elif prompt_type == 2:
+        return f"{content}，只需要一句日文例句，不需要補充解釋和翻譯。"
+    elif prompt_type == 3:
+        return "請解析以上日文句子的文法。"
+    elif prompt_type == 4:
+        return f"「{content}」翻譯成繁體中文。"
+    else:
+        return ""
+def chat_respone(text,content_type):
         current_time=datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        prompt = text+"只能用日文回答我"
+        match content_type:
+            case 1:#單字生成
+                new_text=get_prompt(1,text)
+            case 2:#例句生成
+                new_text=get_prompt(2,text)
+            case 3:#解析生成
+                new_text=get_prompt(3,text)
+            case 4:
+                new_text=text[2]
+                text=text[1]
+                print(new_text)
+            case _:#一般對話
+                new_text=text
+        sentences = new_text.split('\n')
+        prompt = "只能使用日文回答"+ get_prompt(5) +'\n'.join([f"{i + 1}.{sentence}" for i, sentence in enumerate(sentences)])
         response=chat_completion(prompt)
-        Chat_history(text,current_time,response)
-        return response
-@app.route("/translate",methods=["GET","POST"])
-def translate():
-    msg=request.form["msg"]
-    print("tramslate message:", msg)
-    input=msg
-    response=chat_translate_respone(input)
-    return response
-
+        zh_response=chat_translate_respone(get_prompt(4,response))
+        response_sentences =response.split('\n')
+        formatted_response = '<br><hr>'.join(response_sentences)
+        getchatresponse(formatted_response,zh_response)
+        Chat_history(text,current_time,response,zh_response)
+        return ""
 def chat_translate_respone(text):
-    prompt="把"+text+"翻譯成繁體中文"
-    response=chat_completion(prompt)
+    response=chat_completion(text)
     return response
-def Chat_history(content,senttime,response):
+def Chat_history(content,senttime,response,zh_response):
     User_ID=session['User_id']
-    zh_response=chat_translate_respone(response)
     cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
     cursor.execute('INSERT INTO chat_history VALUES (% s, % s, % s, % s,% s)', (User_ID,senttime, content,response,zh_response ))
     mysql.connection.commit()
@@ -138,17 +153,24 @@ def get_message():
 @app.route("/selectvoc",methods=["POST"])
 def selectvoc():
     JapaneseVoc=request.form.get('voc')#選取的單字
-    prompt="請給我'"+JapaneseVoc+"'的例句"#傳入機器人的提示詞
-    getchatmsg(prompt)
-    print(prompt)
-    Ex_response=chat_respone(prompt)
-    getchatresponse(Ex_response)
+    msg="請給我'"+JapaneseVoc+"'的例句"
+    getchatmsg(msg)
+    chat_respone(msg,2)
+    
     return ""
 #文法例句
 @app.route("/getGrammer",methods=["POST"])
 def getGrammer():
     search_index=request.form.get("search_index")
-    print(search_index)
+    cursor=mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+    cursor.execute('SELECT * FROM grammer_prompt WHERE Grammer_Index = % s', (search_index, ))
+    grammer_prompt=cursor.fetchone()
+    grammer_Type = grammer_prompt.get('Grammer_Type')
+    grammer_Prompt=grammer_prompt.get('Grammer_Prompt')
+    msg="請給我'"+grammer_Type+"'的例句"
+    grammer_dict={1:msg,2:grammer_Prompt}
+    getchatmsg(msg)
+    chat_respone(grammer_dict,4)
     return ""
 
 
