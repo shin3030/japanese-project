@@ -22,7 +22,7 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link active" style="--h:rgb(161, 20, 95)" aria-current="page" href="/">首頁</a>
+              <a class="nav-link active" style="--h:rgb(161, 20, 95)" aria-current="page" href="/begin">首頁</a>
             </li>
             <li class="nav-item">
               <a class="nav-link active" style="--h:rgb(161, 20, 95)" aria-current="page" href="/50">五十音</a>
@@ -104,11 +104,16 @@
           <hr>
             <div class="row">
                 <h5 class="col-md-10">A は B です (A是B)</h5>
-                <a class="col-md-2 btn btn-outline-secondary" onclick="getSearchIndex(1)">例句生成</a>
+                <a class="col-md-2 btn btn-outline-secondary" onclick="getSearchIndex(1)">例句</a>
             </div>
                 <p>は：助詞，讀音為 wa</p>
                 <p>です：表肯定</p>
-                <h5>A は B ではありません (A不是B)</h5>
+                <hr>
+                <div class="row">
+                    <h5 class="col-md-10">A は B ではありません (A不是B)</h5>
+                    <a class="col-md-2 btn btn-outline-secondary" onclick="getSearchIndex(2)">例句</a>
+                </div>
+                
                 <p>ではありません：表否定</p>
                 <p>ではありません ＝ じゃありません＝ではないです</p>
                 <p>では＝じゃ</p>
@@ -116,7 +121,7 @@
                 <hr>
                 <div class="row">
                     <h5 class="col-md-10">A は B ですか？ (A是B嗎?)</h5>
-                    <a class="col-md-2 btn btn-outline-secondary" onclick="">例句生成</a>
+                    <a class="col-md-2 btn btn-outline-secondary" onclick="getSearchIndex(3)">例句</a>
                 </div>
                 <p>か：疑問助詞</p>
                 <li>Yes --> はい、A は B です</li>
@@ -154,10 +159,10 @@
             <br>
             <hr>
 
-            <div class="row">
+            
                 <h5 class="col-md-10">指示詞</h5>
-                <a class="col-md-2 btn btn-outline-secondary" onclick="">例句生成</a>
-            </div>
+                
+            
             <p>在此假設自己為說話者，另一個人為聽話者，在有點距離的情況下。</p>
             
             <table border="1" class="table-bordered" bordercolor="black">
@@ -199,11 +204,16 @@
 
             
               <br>
-                <li>これ／それ／あれ　＋　は　＋　N　＋です</li>
-                <li>これ／それ／あれ　＋　は　＋     S　＋　の　＋　N　＋　です</li>
-                <li>この／その／あの　＋　N１(物）＋　は　＋　 S　＋　の　＋（N1）＋　です</li>
-                <li>N　＋　は　＋　どれ　＋　ですか</li>
-                <li>N　＋　は　＋　どの　＋　N　＋　ですか</li>
+                <div class="row d-flex justify-content-start align-middle "><li class="col-md-10">これ／それ／あれ　＋　は　＋　N　＋です</li>
+                    <a class="col-md-1 btn btn-outline-secondary p-0" style="font-size: 15px;" onclick="getSearchIndex(4)">例句</a></div>
+                <div class="row d-flex justify-content-start align-middle "><li class="col-md-10">これ／それ／あれ　＋　は　＋     S　＋　の　＋　N　＋　です</li>
+                    <a class="col-md-1 btn btn-outline-secondary p-0" style="font-size: 15px;" onclick="getSearchIndex(5)">例句</a></div>
+                <div class="row d-flex justify-content-start align-middle "><li class="col-md-10">この／その／あの　＋　N１(物）＋　は　＋　 S　＋　の　＋（N1）＋　です</li>
+                    <a class="col-md-1 btn btn-outline-secondary p-0" style="font-size: 15px;" onclick="getSearchIndex(6)">例句</a></div>
+                <div class="row d-flex justify-content-start align-middle "><li class="col-md-10">N　＋　は　＋　どれ　＋　ですか</li>
+                    <a class="col-md-1 btn btn-outline-secondary p-0" style="font-size: 15px;" onclick="getSearchIndex(7)">例句</a></div>
+                <div class="row d-flex justify-content-start align-middle "><li class="col-md-10">N　＋　は　＋　どの　＋　N　＋　ですか</li>
+                    <a class="col-md-1 btn btn-outline-secondary p-0" style="font-size: 15px;" onclick="getSearchIndex(8)">例句</a></div>
                 <p>例：図書館はどの建物ですか。</p>
             
                 <p>★</p>
@@ -222,7 +232,7 @@
             <hr>
             <div class="row">
                 <h5 class="col-md-10">助詞の</h5>
-                <a class="col-md-2 btn btn-outline-secondary" onclick="">例句生成</a>
+                <a class="col-md-2 btn btn-outline-secondary" onclick="getSearchIndex(9)">例句生成</a>
             </div>
                 <h5>N1 の N2 (某人的東西)</h5>
                 <p>N1為人，N2 為事物</p>
@@ -230,7 +240,7 @@
 
             <div class="row">
                 <h5 class="col-md-10">助詞も</h5>
-                <a class="col-md-2 btn btn-outline-secondary" onclick="">例句生成</a>
+                <a class="col-md-2 btn btn-outline-secondary" onclick="getSearchIndex(10)">例句生成</a>
             </div>
                 <h5>N1 も N2 です(某人也是...)</h5>
                 <p>表示並例，中文"也"的意思。</p>

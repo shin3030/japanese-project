@@ -30,7 +30,7 @@
 								</div>
 							</div>
 						</div>
-						<div id="messageFormeight" class="card-body msg_card_body">
+						<div id="messageFormeight" class="card-body msg_card_body pb-0">
 							{%for message in messages%}
 							<div class="d-flex justify-content-end mb-4"><div class="msg_cotainer_send">{{message.User_Content}}<span class="msg_time_send">{{message.Message_Date_Time.strftime("%H:%M")}}
 								</span></div><div class="img_cont_msg"><img src="https://i.ibb.co/d5b84Xw/Untitled-design.png" class="rounded-circle user_img_msg"></div></div>
@@ -39,9 +39,9 @@
 							
 						</div>
 						<div class="row px-5 py-1" style="width: 80%;">
-						<a id="Translate" class="btn btn-outline-secondary text-light d-flex justify-content-center align-middle h-2 fs-6" style="border-radius:45%;width:50px;">翻譯</a>
-						<a id="" class="btn btn-outline-secondary text-light mx-2 d-flex justify-content-center align-middle h-2 fs-6" style="border-radius:45%;width:50px;">解析</a>
-					</div>
+							<a id="Translate" class="btn btn-outline-secondary text-light invisible  d-flex justify-content-center align-middle h-2 fs-6" style="border-radius:45%;width:50px;">翻譯</a>
+							<a id="" class="btn btn-outline-secondary text-light mx-2 invisible d-flex justify-content-center align-middle h-2 fs-6" style="border-radius:45%;width:50px;">解析</a>
+						</div>
 						<div class="card-footer pt-0">
 							<form id="messageArea" class="input-group" action="{{url_for('get')}}" method="post">
                                 <input type="msg" id="msg" name="msg" placeholder="Type your message..." autocomplete="off" class="form-control type_msg" required/>
@@ -70,10 +70,7 @@
 				
                 $("#messageArea").submit(function(event){
                     var rawtext=$("#msg").val();
-    //                 var userHtml = '<div class="d-flex justify-content-end mb-4"><div class="msg_cotainer_send">' + rawtext + '<span class="msg_time_send">'+ time + 
-    // '</span></div><div class="img_cont_msg"><img src="https://i.ibb.co/d5b84Xw/Untitled-design.png" class="rounded-circle user_img_msg"></div></div>';
                     $("#msg").val("");
-                    // $("#messageFormeight").append(userHtml);
                     $.ajax({
                         data: {
                         msg: rawtext,
@@ -85,19 +82,28 @@
                 
 				socket.on('send_prompt', (data)=> {
             var prompt = data.prompt;
-			console.log(socket);
             var botHtml ='<div class="d-flex justify-content-end mb-4"><div class="msg_cotainer_send">' + prompt + '<span class="msg_time_send">'+ time + 
     '</span></div><div class="img_cont_msg"><img src="https://i.ibb.co/d5b84Xw/Untitled-design.png" class="rounded-circle user_img_msg"></div></div>';
 			$("#messageFormeight").append($.parseHTML(botHtml));
             scrollToBottom();
         });
 		socket.on('send_Expample',(data)=>{
-			var Example=data.Example
+			let Example=data.Example
+			let zh_Example=data.Zh_Example
 			var botHtml = '<div class="d-flex justify-content-start mb-4"><div class="img_cont_msg"><img src="/static/images/otherfactor/yuko_title.png" class="rounded-circle user_img_msg"></div><div class="msg_cotainer">' + Example + '<span class="msg_time">' + time + '</span></div></div>';
              $("#messageFormeight").append($.parseHTML(botHtml));
 			 scrollToBottom();
-			 
-			 
+			if($('#Translate').hasClass('invisible')){
+				$('#Translate').removeClass('invisible')
+				$('#Translate').addClass('visible')
+			}
+			$('#Translate').off('click').click(function(){
+				var botHtm2 = '<div class="d-flex justify-content-start mb-4"><div class="img_cont_msg"><img src="/static/images/otherfactor/yuko_title.png" class="rounded-circle user_img_msg"></div><div class="msg_cotainer">' + zh_Example + '<span class="msg_time">' + time + '</span></div></div>';
+				$("#messageFormeight").append($.parseHTML(botHtm2));
+				$('#Translate').removeClass('visible');
+				$('#Translate').addClass('invisible');
+				scrollToBottom();
+			})
 		});
             })
             
