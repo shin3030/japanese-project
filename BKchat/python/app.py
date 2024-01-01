@@ -87,6 +87,10 @@ def getchatmsg(msg):#使用者訊息回傳至聊天室
 def getchatresponse(response,zh_response):#機器人訊息回傳至聊天室
     socketio.emit('send_Expample', {'Example': response,'Zh_Example':zh_response})
     return ""
+def get_anylze(anylze_response):
+    print(anylze_response)
+    socketio.emit('get_analyze',{'response':anylze_response})
+    return""
 def chat_completion(prompt, model_engine="gpt35", temperature=0.9, top_p=0.95, max_tokens=1024):
     args = {
         'prompt': prompt,
@@ -105,7 +109,7 @@ def get_prompt(prompt_type, content=""):
     elif prompt_type == 2:
         return f"{content}，只需要一句日文例句，不需要補充解釋和翻譯。"
     elif prompt_type == 3:
-        return "請解析以上日文句子的文法。"
+        return f"{content}，請解析以上日文句子中使用的單字、文法。"
     elif prompt_type == 4:
         return f"「{content}」翻譯成繁體中文。"
     else:
@@ -117,18 +121,18 @@ def chat_respone(text,content_type):
                 new_text=get_prompt(1,text)
             case 2:#例句生成
                 new_text=get_prompt(2,text)
-            case 3:#解析生成
-                new_text=get_prompt(3,text)
-            case 4:
+            case 3:#文法例句
                 new_text=text[2]
                 text=text[1]
-                print(new_text)
             case _:#一般對話
                 new_text=text
         sentences = new_text.split('\n')
         prompt = "只能使用日文回答"+ get_prompt(5) +'\n'.join([f"{i + 1}.{sentence}" for i, sentence in enumerate(sentences)])
         response=chat_completion(prompt)
         zh_response=chat_translate_respone(get_prompt(4,response))
+        if content_type==2 or content_type==3:
+            anylize_response=chat_completion(get_prompt(3,response))
+            get_anylze(anylize_response)
         response_sentences =response.split('\n')
         formatted_response = '<br><hr>'.join(response_sentences)
         getchatresponse(formatted_response,zh_response)
@@ -170,7 +174,7 @@ def getGrammer():
     msg="請給我'"+grammer_Type+"'的例句"
     grammer_dict={1:msg,2:grammer_Prompt}
     getchatmsg(msg)
-    chat_respone(grammer_dict,4)
+    chat_respone(grammer_dict,3)
     return ""
 
 
