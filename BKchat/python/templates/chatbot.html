@@ -39,8 +39,8 @@
 							
 						</div>
 						<div class="row px-5 py-1" style="width: 80%;">
-							<a id="Translate" class="btn btn-outline-secondary text-light invisible  d-flex justify-content-center align-middle h-2 fs-6" style="border-radius:45%;width:50px;">翻譯</a>
-							<a id="" class="btn btn-outline-secondary text-light mx-2 invisible d-flex justify-content-center align-middle h-2 fs-6" style="border-radius:45%;width:50px;">解析</a>
+							<a id="Translate" class="btn btn-outline-secondary text-light   d-none justify-content-center align-middle h-2 fs-6" style="border-radius:45%;width:50px;">翻譯</a>
+							<a id="Analyze" class="btn btn-outline-secondary text-light mx-2  d-none justify-content-center align-middle h-2 fs-6" style="border-radius:45%;width:50px;">解析</a>
 						</div>
 						<div class="card-footer pt-0">
 							<form id="messageArea" class="input-group" action="{{url_for('get')}}" method="post">
@@ -93,18 +93,32 @@
 			var botHtml = '<div class="d-flex justify-content-start mb-4"><div class="img_cont_msg"><img src="/static/images/otherfactor/yuko_title.png" class="rounded-circle user_img_msg"></div><div class="msg_cotainer">' + Example + '<span class="msg_time">' + time + '</span></div></div>';
              $("#messageFormeight").append($.parseHTML(botHtml));
 			 scrollToBottom();
-			if($('#Translate').hasClass('invisible')){
-				$('#Translate').removeClass('invisible')
-				$('#Translate').addClass('visible')
+			if($('#Translate').hasClass('d-none')){
+				$('#Translate').removeClass('d-none')
+				$('#Translate').addClass('d-flex')
 			}
 			$('#Translate').off('click').click(function(){
 				var botHtm2 = '<div class="d-flex justify-content-start mb-4"><div class="img_cont_msg"><img src="/static/images/otherfactor/yuko_title.png" class="rounded-circle user_img_msg"></div><div class="msg_cotainer">' + zh_Example + '<span class="msg_time">' + time + '</span></div></div>';
 				$("#messageFormeight").append($.parseHTML(botHtm2));
-				$('#Translate').removeClass('visible');
-				$('#Translate').addClass('invisible');
+				$('#Translate').removeClass('d-flex');
+				$('#Translate').addClass('d-none');
 				scrollToBottom();
 			})
-		});
+			
+		});socket.on('get_analyze',(data)=>{
+				let response_anylized=data.response
+				if($('#Analyze').hasClass('d-none')){
+				$('#Analyze').removeClass('d-none')
+				$('#Analyze').addClass('d-flex')
+			}
+			$('#Analyze').off('click').click(function(){
+				var botHtm3 = '<div class="d-flex justify-content-start mb-4"><div class="img_cont_msg"><img src="/static/images/otherfactor/yuko_title.png" class="rounded-circle user_img_msg"></div><div class="msg_cotainer">' + response_anylized + '<span class="msg_time">' + time + '</span></div></div>';
+				$("#messageFormeight").append($.parseHTML(botHtm3));
+				$('#Analyze').removeClass('d-flex');
+				$('#Analyze').addClass('d-none');
+				scrollToBottom();
+			})
+			});
             })
             
         </script>
