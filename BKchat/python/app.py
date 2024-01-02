@@ -88,7 +88,6 @@ def getchatresponse(response,zh_response):#機器人訊息回傳至聊天室
     socketio.emit('send_Expample', {'Example': response,'Zh_Example':zh_response})
     return ""
 def get_anylze(anylze_response):
-    print(anylze_response)
     socketio.emit('get_analyze',{'response':anylze_response})
     return""
 def chat_completion(prompt, model_engine="gpt35", temperature=0.9, top_p=0.95, max_tokens=1024):
@@ -109,7 +108,15 @@ def get_prompt(prompt_type, content=""):
     elif prompt_type == 2:
         return f"{content}，只需要一句日文例句，不需要補充解釋和翻譯。"
     elif prompt_type == 3:
-        return f"{content}，請解析以上日文句子中使用的單字、文法。"
+        return f'''{content}，請解析以上日文句子中使用的單字、文法。格式範例
+単語:
+- 彼 (かれ)：「彼」は「彼」を表す三人称代名詞です。
+- 医者 (いしゃ)：「医者」は「医者」を表す名詞です。
+文法:
+- 「彼は医者です」は、意味的には「彼は医者」という文ですが、この文は日本語の丁寧な表現を使用しています。
+- 通常の文法的な構造は、「主語 + は + 名詞 + です」です。
+- この文の意味は「彼は医者です」で、「彼は」は「彼は」という意味であり、後ろの名詞「医者」は「医者」を指しています。
+- 最後の「です」は文の終わりを示す丁寧な表現です。'''
     elif prompt_type == 4:
         return f"「{content}」翻譯成繁體中文。"
     else:
