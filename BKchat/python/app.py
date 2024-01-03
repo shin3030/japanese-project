@@ -108,15 +108,7 @@ def get_prompt(prompt_type, content=""):
     elif prompt_type == 2:
         return f"{content}，只需要一句日文例句，不需要補充解釋和翻譯。"
     elif prompt_type == 3:
-        return f'''{content}，請解析以上日文句子中使用的單字、文法。格式範例
-単語:
-- 彼 (かれ)：「彼」は「彼」を表す三人称代名詞です。
-- 医者 (いしゃ)：「医者」は「医者」を表す名詞です。
-文法:
-- 「彼は医者です」は、意味的には「彼は医者」という文ですが、この文は日本語の丁寧な表現を使用しています。
-- 通常の文法的な構造は、「主語 + は + 名詞 + です」です。
-- この文の意味は「彼は医者です」で、「彼は」は「彼は」という意味であり、後ろの名詞「医者」は「医者」を指しています。
-- 最後の「です」は文の終わりを示す丁寧な表現です。'''
+        return f"只能用中文回答。「{content}」。請透過條列的方式解析以上日文句子中使用的單字、文法，不需要中文翻譯。若為一個例句或「A は B ですか？」的例句時使用以下範例格式A:「單字解析：<br>- 單字1：單字1解析<br>- 單字2：單字2解析。<br>- 單字3：單字3解析。<br>- 單字4：單字4解析。<br>- 單字5：單字5解析。<br><br>文法解析：<br>- 文法1：文法1解析<br>- 文法2：文法2解析<br>- 文法3：文法3解析<br>- 文法4：文法4解析<br>- 文法5：文法5解析」。若為多個例句則不使用使用範例格式A，改成使用以下範例格式B，「A は B ですか？」的例句則不使用使用範例格式B:「例句1.<br>單字解析：<br>- 單字1：單字1解析<br>- 單字2：單字2解析。<br>- 單字3：單字3解析。<br>- 單字4：單字4解析。<br>- 單字5：單字5解析。<br><br>文法解析：<br>- 文法1：文法1解析<br>- 文法2：文法2解析<br>- 文法3：文法3解析<br>- 文法4：文法4解析<br>- 文法5：文法5解析<br>例句2.<br>單字解析：<br>- 單字1：單字1解析<br>- 單字2：單字2解析。<br>- 單字3：單字3解析。<br>- 單字4：單字4解析。<br>- 單字5：單字5解析。<br><br>文法解析：<br>- 文法1：文法1解析<br>- 文法2：文法2解析<br>- 文法3：文法3解析<br>- 文法4：文法4解析<br>- 文法5：文法5解析<br>例句3.<br>單字解析：<br>- 單字1：單字1解析<br>- 單字2：單字2解析。<br>- 單字3：單字3解析。<br>- 單字4：單字4解析。<br>- 單字5：單字5解析。<br><br>文法解析：<br>- 文法1：文法1解析<br>- 文法2：文法2解析<br>- 文法3：文法3解析<br>- 文法4：文法4解析<br>- 文法5：文法5解析」。"
     elif prompt_type == 4:
         return f"「{content}」翻譯成繁體中文。"
     else:
@@ -139,15 +131,23 @@ def chat_respone(text,content_type):
         zh_response=chat_translate_respone(get_prompt(4,response))
         if content_type==2 or content_type==3:
             anylize_response=chat_completion(get_prompt(3,response))
-            get_anylze(anylize_response)
-        response_sentences =response.split('\n')
-        formatted_response = '<br><hr>'.join(response_sentences)
-        getchatresponse(formatted_response,zh_response)
-        Chat_history(text,current_time,response,zh_response)
+            get_anylze(format_anylze(anylize_response))
+        formatted_response = format_response(response)
+        format_zh_response=format_response(zh_response)
+        getchatresponse(formatted_response,format_zh_response)
+        Chat_history(text,current_time,response,format_zh_response)
         return ""
 def chat_translate_respone(text):
     response=chat_completion(text)
     return response
+def format_response(response):
+    response_lines = response.split('\n')
+    formatted_response = '<br><hr>'.join(response_lines)
+    return formatted_response
+def format_anylze(response):
+    response_lines = response.split('\n')
+    formatted_response = '<br>'.join(response_lines)
+    return formatted_response
 def Chat_history(content,senttime,response,zh_response):
     User_ID=session['User_id']
     cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
