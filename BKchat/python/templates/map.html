@@ -88,7 +88,10 @@
               {%if mesage=='True'%}
                   <li><hr class="dropdown-divider"></li>
                   <li><a class="dropdown-item" style="--hh:rgb(102, 51, 183)" href='/logout'>登出</a></li>
-                  {%endif%}
+              {%else%}
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" style="--hh:rgb(102, 51, 183)" href='/login'>登入/註冊</a></li>
+              {%endif%}
             </ul>
           </li>
         </ul>
