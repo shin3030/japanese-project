@@ -16,9 +16,8 @@ app.config['MYSQL_PASSWORD']=''
 app.config['MYSQL_DB']='bk_japanese'
 mysql=MySQL(app)
 socketio = SocketIO(app)
-name_space='/SendVocEx'
 # 登入
-@app.route("/")
+
 @app.route("/login",methods=['GET','POST'])
 def login():
     mesage = ''
@@ -33,7 +32,7 @@ def login():
             session['User_id'] = user['User_id']
             session['name'] = user['UserName']
             session['email'] = user['Email']
-            mesage = 'Logged in successfully !'
+            mesage = "True"
            
             
             return render_template('beginpage.html', mesage = mesage)
@@ -71,7 +70,7 @@ def logout():
     session.pop('loggedin', None)
     session.pop('User_id', None)
     session.pop('email', None)
-    return redirect(url_for('login'))
+    return redirect('/')
 
 
 #機器人對話
@@ -150,17 +149,21 @@ def format_anylze(response):
     formatted_response = '<br>'.join(response_lines)
     return formatted_response
 def Chat_history(content,senttime,response,zh_response):
-    User_ID=session['User_id']
-    cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-    cursor.execute('INSERT INTO chat_history VALUES (% s, % s, % s, % s,% s)', (User_ID,senttime, content,response,zh_response ))
-    mysql.connection.commit()
+    if 'User_id' in session and session['User_id']:
+        User_ID=session['User_id']
+        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        cursor.execute('INSERT INTO chat_history VALUES (% s, % s, % s, % s,% s)', (User_ID,senttime, content,response,zh_response ))
+        mysql.connection.commit()
     return 0
 def get_message():
-    User_ID=int(session['User_id'])
-    cursor=mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-    cursor.execute('SELECT * FROM chat_history WHERE User_id = % s', (User_ID, ))
-    messages=cursor.fetchall()
-    return messages
+    if 'User_id' in session and session['User_id']:
+        User_ID=int(session['User_id'])
+        cursor=mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        cursor.execute('SELECT * FROM chat_history WHERE User_id = % s', (User_ID, ))
+        messages=cursor.fetchall()
+        return messages
+    else:
+        return ""
 #單字例句
 @app.route("/selectvoc",methods=["POST"])
 def selectvoc():
@@ -187,9 +190,13 @@ def getGrammer():
 
 
 #頁面
+@app.route("/")
 @app.route("/begin")
 def Homepage():
-    return render_template("beginpage.html")
+    if 'User_id' in session and session['User_id']:
+        return render_template("beginpage.html",mesage='True')
+    else:
+        return render_template("beginpage.html",mesage='False')
 
 @app.route("/chatbot")
 def chatbot():
@@ -198,16 +205,25 @@ def chatbot():
 
 @app.route("/50")
 def letter():
-    return render_template("50.html")
+    if 'User_id' in session and session['User_id']:
+        return render_template("50.html",mesage='True',address='/50')
+    else:
+        return render_template("50.html",mesage='False')
 @app.route("/map")
 def jmap():
-    return render_template("map.html")
+    if 'User_id' in session and session['User_id']:
+        return render_template("map.html",mesage='True',address='/map')
+    else:
+        return render_template("map.html",mesage='False')
 
 
 @app.route("/N5voc")
 def N5voc():
     page='a'
-    return render_template("N5voc.html",Voc=getvoc(page))
+    if 'User_id' in session and session['User_id']:
+        return render_template("N5voc.html",mesage='True',address='/N5voc')
+    else:
+        return render_template("N5voc.html",mesage='False')
 @app.route("/NewTable",methods=["GET","POST"])
 def NewTabke():
     if request.method=='POST':
@@ -230,13 +246,22 @@ def getvoc(page):
 
 @app.route("/N5gra")
 def N5gra():
-    return render_template("N5gra.html")
+    if 'User_id' in session and session['User_id']:
+        return render_template("N5gra.html",mesage='True',address='/N5gra')
+    else:
+        return render_template("N5gra.html",mesage='False')
 @app.route("/story")
 def story():
-    return render_template("story.html")
+    if 'User_id' in session and session['User_id']:
+        return render_template("story.html",mesage='True',address='story')
+    else:
+        return render_template("story.html",mesage='False')
 @app.route("/ReadAloud")
 def read():
-    return render_template("ReadAloud.html")
+    if 'User_id' in session and session['User_id']:
+        return render_template("ReadAloud.html",mesage='True',address='/ReadAloud')
+    else:
+        return render_template("ReadAloud.html",mesage='False')
 
 if __name__=='__main__':
     # app.run(debug=True)
