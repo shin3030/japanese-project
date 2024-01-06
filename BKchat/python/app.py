@@ -135,7 +135,8 @@ def chat_respone(text,content_type):
         formatted_response = format_response(response)
         format_zh_response=format_response(zh_response)
         getchatresponse(formatted_response,format_zh_response)
-        Chat_history(text,current_time,response,format_zh_response)
+        if 'User_id' in session and session['User_id']:
+            Chat_history(text,current_time,response,format_zh_response)
         return ""
 def chat_translate_respone(text):
     response=chat_completion(text)
@@ -149,11 +150,10 @@ def format_anylze(response):
     formatted_response = '<br>'.join(response_lines)
     return formatted_response
 def Chat_history(content,senttime,response,zh_response):
-    if 'User_id' in session and session['User_id']:
-        User_ID=session['User_id']
-        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute('INSERT INTO chat_history VALUES (% s, % s, % s, % s,% s)', (User_ID,senttime, content,response,zh_response ))
-        mysql.connection.commit()
+    User_ID=session['User_id']
+    cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+    cursor.execute('INSERT INTO chat_history VALUES (% s, % s, % s, % s,% s)', (User_ID,senttime, content,response,zh_response ))
+    mysql.connection.commit()
     return 0
 def get_message():
     if 'User_id' in session and session['User_id']:
