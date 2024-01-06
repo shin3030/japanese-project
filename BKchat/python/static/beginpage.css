@@ -330,6 +330,7 @@ section{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    
   }
   .logo{
     width: 200px;
@@ -359,17 +360,29 @@ section{
     0 0  10px #f192ed,
     0 0  15px #f192ed ;
     cursor: pointer;
-  }
- 
-  
-  .sec-1.show .logoback{
-    opacity: 1;
-    transition: opacity 3s;
-
-  }
-  .sec-1 .logoback{
     opacity: 0;
   }
+.sec-1 .login{
+  margin-top: 3%;
+  z-index: 1;
+  text-decoration: none;
+  font-size: 2rem;
+  opacity: 0;
+}
+.sec-1.show .login{
+  transition: opacity 4s;
+  opacity: 1;
+}
+.sec-1 .login:hover{
+  color: #8b0232;
+}
+  .sec-1.show .logoback{
+    transition: opacity 3s;
+    opacity: 1;
+    
+
+  }
+  
   .sec-1.show .logo{
     opacity: 1;
     transform: translateX(0);
