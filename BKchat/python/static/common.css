@@ -30,10 +30,11 @@ body{
     width: 100%;
     padding: 30px,0;
     display:flex;
-    justify-content:space-evenly;
+    justify-content: center;
     align-items: center;
     z-index: 1;
 }
+
 .navbar .navbar-nav .nav-link {
     font-weight: 700;
     color: rgb(255, 255, 255);
