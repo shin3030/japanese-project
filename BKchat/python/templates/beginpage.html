@@ -113,9 +113,18 @@
                 <span>語</span>
                 
           </h1></div>
-          <span class="logoback"><img class="logo" alt="" src="/static/images/otherfactor/yuko_title.png"></div></span>
+          <span class="logoback"><img class="logo" alt="" src="/static/images/otherfactor/yuko_title.png"></span>
+          {%if mesage!='True'%}
+          <a class="login" href="/login">登入/註冊</a>
+          {%endif%}
+          {%if mesage=='True'%}
+          <a class="login" href="/logout">登出</a>
+          {%endif%}
+        </div>
+          
           
         </div>
+        
         </section>
         
         <section class="sec-2">

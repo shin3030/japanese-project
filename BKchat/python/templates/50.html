@@ -66,6 +66,10 @@
               <li><a class="dropdown-item" style="--hh:#3f8adf" href="/map">地圖</a></li>
               <li><hr class="dropdown-divider"></li>
               <li><a class="dropdown-item" style="--hh:#3f8adf" href="/story">小故事</a></li>
+              {%if mesage=='True'%}
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" style="--hh:#3f8adf" href='/logout'>登出</a></li>
+                  {%endif%}
             </ul>
           </li>
         </ul>

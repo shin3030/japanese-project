@@ -64,6 +64,10 @@
                 <li><a class="dropdown-item" style="--hh:rgb(186, 65, 0)" href="/map">地圖</a></li>
                 <li><hr class="dropdown-divider"></li>
                 <li><a class="dropdown-item" style="--hh:rgb(186, 65, 0)" href="/story">小故事</a></li>
+                {%if mesage=='True'%}
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" style="--hh:rgb(186, 65, 0)" href='/logout'>登出</a></li>
+                  {%endif%}
               </ul>
             </li>
           </ul>
@@ -355,7 +359,7 @@
     
     
 </div>
-    </div>
+    </div></div>
     <div class="section course course3">
       <div class="style2 col-md-12 py-5 text-black">
         <h2>第三課</h2>
