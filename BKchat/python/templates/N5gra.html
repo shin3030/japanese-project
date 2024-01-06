@@ -260,11 +260,13 @@
         <hr>
         <div class="row">
             <h5 class="col-md-10">い形容詞</h5>
-            <a class="col-md-2 btn btn-outline-secondary" onclick="getSearchIndex()">例句</a>
+            <a class="col-md-2 btn btn-outline-secondary" onclick="getSearchIndex(11)">(い)例句</a>
         </div>
         <p>い形容詞 + 名詞</p>
         <p>形容詞以い結尾</p>
-        <h5>な形容詞</h5>
+        <div class="row">
+            <h5 class="col-md-10">な形容詞</h5>
+            <a class="col-md-2 btn btn-outline-secondary" onclick="getSearchIndex(12)">(な)例句</a>
         <p>形容動詞 + な + 名詞</p>
         <p>例：綺麗な部屋、嫌いな野菜</p>
         <p>*綺麗（きれい）、嫌い（きらい）這兩字雖然是い結尾，但卻是<mark>な形容詞</mark></p>
@@ -273,11 +275,11 @@
         <h5>S（主語） は A ですか、 Bですか</h5>
         <p><mark>*A, B皆放入形容詞</mark></p>
         <hr>
+        <h3>有無句</h3>
         <div class="row">
-            <h5 class="col-md-10">有無句</h5>
-            <a class="col-md-2 btn btn-outline-secondary" onclick="getSearchIndex()">例句</a>
+            <h5 class="col-md-10">A に B があります / います（A有B）</h5>
+            <a class="col-md-2 btn btn-outline-secondary" onclick="getSearchIndex(13)">例句</a>
         </div>
-        <h5>A に B があります / います（A有B）</h5>
         <p>A放場所、位置</p>
         <p>B放存在的東西或人...</p>
         <p><mark>B是有生命（會動）的話使用います</mark></p>
@@ -285,13 +287,10 @@
         <br>
         <p>に：助詞，表場所、地點</p>
         <p>が：助詞，表有無</p>
-        <hr>
         <div class="row">
-            <h5 class="col-md-10">助詞　と</h5>
-            <a class="col-md-2 btn btn-outline-secondary" onclick="getSearchIndex()">例句</a>
+            <h5 class="col-md-10">A に B があります / いますか？（A有B嗎？）</h5>
+            <a class="col-md-2 btn btn-outline-secondary" onclick="getSearchIndex(14)">例句</a>
         </div>
-        <p>と：表並列關係</p>
-        <h5>A に B があります / いますか？（A有B嗎？）</h5>
         <p>A放場所、位置</p>
         <p>B放入疑問詞</p>
         <li>需注意B放入的為無生命或是有生命的人或是動物...<br>要跟後方的あります、います做搭配</li>
@@ -321,16 +320,18 @@
               <li>Yes--->はい、B（名詞）があります／います。</li>
               <li>No--->いいえ、B（名詞）<mark>は</mark>ありません／いません。</li>
             <hr>
+            <h3>存在句</h3>
             <div class="row">
-                <h5 class="col-md-10">存在句</h5>
-                <a class="col-md-2 btn btn-outline-secondary" onclick="getSearchIndex()">例句</a>
+                <h5 class="col-md-10">A には B もありません / いません  (A不在B)</h5>
+                <a class="col-md-2 btn btn-outline-secondary" onclick="getSearchIndex(16)">例句</a>
             </div>
-              <h5>A には B もありません / いません  (A不在B)</h5>
               <p>A放場所、位置</p>
               <p>B放入疑問詞</p>
               <li>需注意B放入的為無生命或是有生命的人或是動物...<br>要跟後方的あります、います做搭配</li>
-              
-              <h5>A は B にいます / あります（A 在 B）</h5>
+              <div class="row">
+                <h5 class="col-md-10">A は B にいます / あります（A 在 B）</h5>
+                <a class="col-md-2 btn btn-outline-secondary" onclick="getSearchIndex(15)">例句</a>
+            </div>
               <p>A放東西、人...</p>
               <p>B放場所、位置</p>
               <li>Question:A （物／人）は＋ どこ＋に＋ありますか／いますか</li>
@@ -345,7 +346,7 @@
               <hr>
               <div class="row">
                 <h5 class="col-md-10">～や～（など）</h5>
-                <a class="col-md-2 btn btn-outline-secondary" onclick="getSearchIndex()">例句</a>
+                <a class="col-md-2 btn btn-outline-secondary" onclick="getSearchIndex(18)">例句</a>
             </div>
               <p>助詞，表列舉</p>
               <p>N1 や N2 など</p>
