@@ -120,3 +120,35 @@ margin-top: 80px;
     background-color: rgb(6, 95, 159);
 }
 
+@media (max-width: 767px){
+
+.content {
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;   
+}
+.title {                              /*大標題*/
+    font-size: 300%!important;
+}
+.card p {                             /*內容*/
+    font-weight: bold;
+     font-size: 80% !important;
+      margin-top: 0px; 
+      margin-bottom: 0px; 
+ }
+.download {
+    font-size: 100%;
+}
+.card-content{                       /*圖片標題框*/
+    width: 60%;
+  } 
+.card-content h1{                    /*圖片標題大小*/
+    font-size: 150% !important;   
+}
+
+.back-card img {  
+    width: 100%; 
+    height: auto; 
+}
+
+}

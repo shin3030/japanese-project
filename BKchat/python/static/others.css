@@ -311,3 +311,56 @@ color: #34a0a4;
     width: 700px;
 }
 
+@media (max-width: 767px){
+
+      .section-title h1{              /*大標題*/
+        font-size: 300%;
+       }
+       .section-title .card{          /*按鈕字*/
+        font-size: 100%;
+      }
+      .section-title .card-story{     /*按鈕框*/
+        width: 100%!important;      
+      }
+      .describe{ 
+        font-size: 80%;
+    }
+    .readaloud{
+        font-size: 80%;
+    }
+      .content {
+        margin-left: auto;
+        margin-right: auto;
+        width: 100% !important;   
+  }  
+      .story{                        /*大框框*/
+          width: 95%;         
+      }
+      .story h3{
+          font-size: 90%;
+      }
+      .story p{   
+        font-size: 75%;
+      }
+
+/*/////map////*/
+.info {               /*紫色框*/
+    width: 100%;
+  }
+  .info h4 {
+    font-size: 90%; 
+  }
+  .info span {
+    font-size: 80%;
+  }
+  .legend {             /*灰色框*/
+    width: 100%;
+  }
+  .legend h5{
+    font-size: 90%; 
+  }
+  .legend span{
+    font-size: 80%; 
+  }
+}
+    

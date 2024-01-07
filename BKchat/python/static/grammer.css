@@ -165,7 +165,7 @@ background-image: linear-gradient(315deg, #7f2ab4 0%, #5135bf 74%);
   top: 2px;
 }
 .custom-btn {
-  width: 200px;
+  width: 500px;
   height: 40px;
   color: #fff;
   border-radius: 5px;
@@ -183,3 +183,26 @@ background-image: linear-gradient(315deg, #7f2ab4 0%, #5135bf 74%);
   outline: none;
 }
 /*  */
+
+@media (max-width:767px){
+  .style2{
+    width: 100%;
+    font-size: 1rem;
+    overflow-x: scroll;
+  }
+  .style2 h5{
+    font-size: 1.1rem;
+  }
+  .title{
+    font-size: 300%;
+  }
+  .content {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;   
+  }
+  .course7 table{
+    width: 100%;
+  }
+  
+}

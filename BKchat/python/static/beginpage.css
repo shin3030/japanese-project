@@ -105,7 +105,7 @@ section{
     justify-content: space-around;
     align-items: center;
     text-align: center;
-    flex-wrap: nowrap;
+    
     opacity: 0;
     transform: translateY(50%);
     transition: all 1s;
@@ -753,3 +753,154 @@ hr{
     .btn-8 span:hover:after {
       width: 100%;
     }
+    @media (max-width: 767px) {
+      .backimgsec.p0,.backimgsec.p1,.backimgsec.p2,               /*底圖關閉*/
+      .backimgsec.p3 {display: none;}
+        .bubbles span {                                           /*飄雪動畫關閉*/     
+          display: none;
+        }
+        .logo{
+          width: 100%;
+        }
+        .sec-1 .logoback{
+          width: 30%;
+          height: 30%;
+        }
+        .bounce-text h1 {                                          /*跳動標題大小*/
+          width:100%;
+          font-size: 250%;
+        }
+        .menu-card {                                              /*2卡片呈現方式*/
+          flex-wrap: wrap;
+          align-items: center;
+        }
+      .menu-card .card {                                          /*2卡片大小*/
+          width: 45%;
+          height: 35%;
+          box-sizing: border-box;
+          margin: 0%;
+        }
+        .card-content.others .begin-story {                     /*2小故事&地圖得標提大小*/
+          font-size: 120% !important;
+      }
+      
+        .card .card-content h2 {                                   /*2卡片標題大小*/
+          font-size: 150% !important;
+          font-weight: 100%;
+        }
+        .custom-btn {                                             /*2按鈕*/
+          width: 60%;
+          aspect-ratio: 3/1;
+          font-size: 100%;
+          font-weight: 100%;
+          margin-left: 5%;
+          font-size: 1.1rem;
+        }
+        
+        .card:hover .card-content{
+          transform: translateY(-40px);
+      }
+      .sec-3card{
+        margin: 0;
+        height: 100%;}
+        .sec-3 .inner-card .row{                                  /*3的排列*/
+          flex-direction: column; 
+          align-items: center;
+        }
+      .sec-3 .inner-card {                                        /*網頁特色*/  
+        height: 95%;
+        width: 100%;
+        padding: 5px 0 10px 0;
+      }
+        .sec-3 .inner-card h1{                                    /*網路特色字大小*/
+          width: 40%;
+          font-size: 175%;
+          margin-top: 1%;
+          margin-bottom: -10px;
+        }
+      .sec-3 .inner-card .col {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        margin-bottom: 3%;
+        width:90%;
+        
+      }
+      
+      .sec-3 .inner-card .col img{                                /*網頁特色項目圖片大小*/
+         width: 30% ;
+         height: 25%;
+         object-fit: cover;
+       }
+  
+       .sec-3 .inner-card .col h3{                               /*網頁特色項目標題大小*/
+         font-size: 130%;
+         font-weight:100%;
+         writing-mode: vertical-rl; 
+         margin-left: 5px;
+         margin-right: 5px;
+       }
+       
+       .sec-3 .inner-card .col p{ 
+         width: 200%;
+         font-size: 100%;
+         font-weight: 100%;
+         text-align: center;
+         margin: 0;
+         height: fit-content;
+       }
+      .sec-4 .inner-card {                                      /*關於網站字大小*/
+        font-size: 50%;
+        color: hwb(311 76% 2%);
+      }
+      .sec-4 .about-title {                                     /*關於網站的上下間距*/
+        margin-top:55px ;
+        margin-bottom: 35px;
+      }
+      .sec-4 .inner-card-content .image {                       /*關於網站圖片關閉*/
+        display: none;
+        transform: translate(0, 0);
+        opacity: 1;
+      }
+      
+      .sec-4 .inner-card-content .text-box {                     /*關於網站內容的框框*/
+        height: 200%;
+        max-width:25%;
+        color: rgba(76, 18, 90, 0.759);
+        transform: translate(0, 50%); 
+      }
+      .sec-4 .inner-card-content .text-box p {                    /*關於網站內容的字大小*/
+        font-size: 200%;
+      }
+      .sec-4.show .inner-card-content .text-box {
+        transform: translate(0, 0);
+      }
+      
+      .sec-4 .inner-card-content .text-box h3 {                   /*關於網站BK字的大小*/
+        font-size: 275%;
+        margin-bottom: 5px;
+      }
+      .sec-5 .inner-card .image{                                  /*聯絡我們圖片關閉*/
+        display: none;
+      }
+      .media-info{
+        width: 400px;
+        margin-left: 265px;
+        transform: translateY(-5%);
+      }
+      .about-title {
+        font-size: 80%; 
+      }
+      .media-info li{ 
+        font-size: 300%;
+        margin-top: 40px;
+      }
+      
+      .media-info li:nth-child(1),.media-info li:nth-child(5){
+        padding-left: 0;
+      }
+      .media-info li:nth-child(2),.media-info li:nth-child(4){
+        padding-left: 0;
+      }
+  }
