@@ -251,12 +251,11 @@ font-weight: bold;
             justify-content: center;
             align-items: center;
             cursor: pointer;
-            border: 3px rgba(255, 255, 255, 0.6) solid;
-            box-shadow: 0px 0px 5px #ffffff;
+            border: 3px rgba(83, 157, 235, 0.6) solid;
+            box-shadow: 0px 0px 5px #5d7bf1;
             margin: 5px;
             transition: .5s;
             opacity: 1;
-            
         }
         
         .chat-iframe {
@@ -266,8 +265,6 @@ font-weight: bold;
             border-radius: 15px;
             overflow: hidden;
             border: none;
-            clip-path: circle(4% at 91% 94%);
-            transition: .5s ease-in-out;
             display: none;
         }
         .chat-iframe.showchat{
@@ -276,13 +273,13 @@ font-weight: bold;
             opacity: 1;
         }
         .chat-floating-button i{
-          color: #fff; 
+          color: #5392fe; 
           font-size: 36px;
         }
         .chat-floating-button:hover{
           opacity: 0.7;
           filter: Alpha(opacity=80);
-    box-shadow: 0px 0px 6px #ffffff;
+    box-shadow: 0px 0px 6px #1d74a7;
     transform: scale(1.1);
         }
         .chat-floating-button.active{
@@ -291,7 +288,7 @@ font-weight: bold;
         .chat-floating-button.active::after{
             content: '+';
             font-size: 50px;
-            color: white;
+            color: rgb(46, 131, 236);
             text-align: center;
             justify-content: center;
             line-height: 45px;
@@ -333,6 +330,25 @@ font-weight: bold;
             color:  #049a95; 
         }
         .chat-floating-button{
-          display: none;
+          height: 50px;
+          width: 50px;
+        }
+        .chat-floating-button i{
+          font-size: 24px;
+        }
+        .ChatBox{
+          width: 100%;
+          display: flex;
+          flex-direction: column-reverse;
+        }
+        .chat-container{
+          width: 100%;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+        }
+        .chat-iframe{
+          width: 100%;
+          height: 40vh;
         }
         }

@@ -219,8 +219,31 @@ border-radius: 0 0 15px 15px !important;
 	cursor: pointer;
 	background-color: rgba(0,0,0,0.2);
 }
-@media(max-width: 576px){
+@media(max-width: 767px){
 	.contacts_card{
 	margin-bottom: 15px !important;
 }
+	.card-header{
+		height: 50px;
+	}
+	.user_info{
+		height: 30px;
+		display: flex;
+		align-content: start;
+		flex-direction: column;
+	}
+	.img_cont{
+		width: 30px;
+		height: 30px;
+	}
+	.img_cont img{
+		width: 30px;
+		height: 30px;
+	}
+	.user_info span{
+		font-size: 10px;
+	}
+	.user_info p{
+		font-size: 8px;
+	}
 }

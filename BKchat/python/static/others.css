@@ -334,10 +334,12 @@ color: #34a0a4;
         width: 100% !important;   
   }  
       .story{                        /*大框框*/
-          width: 95%;         
+          width: 95%;
+          padding: 10px;        
       }
       .story h3{
-          font-size: 90%;
+          font-size: 100%;
+          margin-top: 20px;
       }
       .story p{   
         font-size: 75%;
@@ -361,6 +363,9 @@ color: #34a0a4;
   }
   .legend span{
     font-size: 80%; 
+  }
+  #use img{
+    width: 100%;
   }
 }
     
